@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "build:server": "esbuild server/index.ts --bundle --platform=node --target=node18 --outfile=server/server.bundle.cjs",
-    "build:tracker": "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe /nologo /optimize+ /target:exe /out:tools\\er_tracker.exe tools\\er_tracker\\Program.cs",
-    "build:launcher": "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe /nologo /optimize+ /target:exe /out:launcher\\EldenRingTracker.exe launcher\\Program.cs",
+    "build:server": "npx esbuild server/index.ts --bundle --platform=node --target=node18 --outfile=server/server.bundle.cjs",
+    "build:tracker": "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe /nologo /optimize+ /target:winexe /out:tools\\er_tracker.exe tools\\er_tracker\\Program.cs",
+    "build:launcher": "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe /nologo /optimize+ /target:winexe /win32icon:launcher\\app.ico /r:System.Windows.Forms.dll /r:System.Drawing.dll /out:launcher\\EldenRingTracker.exe launcher\\Program.cs",
     "package": "powershell -ExecutionPolicy Bypass -File ./scripts/package.ps1",
     "lint": "oxlint",
     "preview": "vite preview"

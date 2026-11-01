@@ -107,7 +107,7 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
   }
   if (category === 'ashesOfWar') {
     return {
-      iconUrl: '/icons/categories/ash.png',
+      iconUrl: '/icons/categories/ash_of_war.png',
       borderColor: '#a3e635',
       glowColor: '#84cc16',
       size: 32,
@@ -337,6 +337,15 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
       label: 'Великая Руна / Прах',
     };
   }
+  if (name.includes('rune arc') || name.includes('руническая дуга')) {
+    return {
+      iconUrl: '/icons/categories/rune_arc.png',
+      borderColor: '#ffd700',
+      glowColor: '#eab308',
+      size: 32,
+      label: 'Руническая дуга',
+    };
+  }
   if (name.includes('rune')) {
     return {
       iconUrl: '/icons/categories/rune_low.png',
@@ -456,13 +465,99 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
       label: 'Торговец / NPC',
     };
   }
-  if (category === 'dungeons' || type === 'poi') {
+  // 6b. Specific Map Locations & Dungeons (Official MapGenie Taxonomy)
+  if (
+    category === 'dungeons' ||
+    name.includes('catacomb') ||
+    name.includes('cave') ||
+    name.includes('tunnel') ||
+    name.includes("hero's grave") ||
+    name.includes('grotto') ||
+    name.includes('катакомб') ||
+    name.includes('пещер') ||
+    name.includes('туннел') ||
+    name.includes('могила героя')
+  ) {
     return {
-      iconUrl: '/icons/categories/ark.png',
+      iconUrl: '/icons/categories/dungeon.png',
+      borderColor: '#94a3b8',
+      glowColor: '#64748b',
+      size: 34,
+      label: 'Подземелье / Катакомбы',
+    };
+  }
+
+  if (
+    name.includes('castle') ||
+    name.includes('academy') ||
+    name.includes('leyndell') ||
+    name.includes('farum azula') ||
+    name.includes('haligtree') ||
+    name.includes('volcano manor') ||
+    name.includes('elphael') ||
+    name.includes('fort ') ||
+    name.includes('fortress') ||
+    name.includes('замок') ||
+    name.includes('академия') ||
+    name.includes('поместье') ||
+    name.includes('столица')
+  ) {
+    return {
+      iconUrl: '/icons/categories/legacy_dungeon.png',
+      borderColor: '#ffd700',
+      glowColor: '#d97706',
+      size: 36,
+      label: 'Великая крепость / Замок',
+    };
+  }
+
+  if (name.includes('divine tower') || name.includes('священная башня')) {
+    return {
+      iconUrl: '/icons/categories/divine_tower.png',
+      borderColor: '#38bdf8',
+      glowColor: '#0284c7',
+      size: 36,
+      label: 'Священная башня',
+    };
+  }
+
+  if (name.includes('erdtree') || name.includes('древо эрд')) {
+    return {
+      iconUrl: '/icons/categories/minor_erdtree.png',
+      borderColor: '#facc15',
+      glowColor: '#ca8a04',
+      size: 34,
+      label: 'Малое Древо Эрд',
+    };
+  }
+
+  if (name.includes('evergaol') || name.includes('узилищ')) {
+    return {
+      iconUrl: '/icons/categories/evergaol.png',
+      borderColor: '#a855f7',
+      glowColor: '#7e22ce',
+      size: 32,
+      label: 'Узилище',
+    };
+  }
+
+  if (name.includes('mausoleum') || name.includes('мавзолей')) {
+    return {
+      iconUrl: '/icons/categories/wandering_mausoleum.png',
       borderColor: '#cbd5e1',
       glowColor: '#64748b',
       size: 34,
-      label: 'Подземелье / Локация',
+      label: 'Блуждающий мавзолей',
+    };
+  }
+
+  if (category === 'dungeons' || type === 'poi' || category === 'poi') {
+    return {
+      iconUrl: '/icons/categories/landmark.png',
+      borderColor: '#cbd5e1',
+      glowColor: '#64748b',
+      size: 34,
+      label: 'Ориентир / Руины',
     };
   }
 
@@ -498,7 +593,8 @@ export function resolveMarkerIconUrl(
   const catVisual = getCategoryVisual(marker);
 
   // If item has a specific individual official wiki image, use it!
-  if (itemImages) {
+  // ONLY for physical items. Bosses, Graces, and Merchants always use clean circular game badges!
+  if (itemImages && marker.type === 'item') {
     const specificUrl = getItemSpecificImage(marker.name, itemImages);
     if (specificUrl) {
       return {
@@ -530,7 +626,8 @@ export function createMarkerIcon(
   const size = Math.round(visual.size * scaleMultiplier);
 
   const isGrace = marker.type === 'grace' || marker.category === 'graces';
-  const imgScale = isGrace ? 'transform: scale(1.15);' : '';
+  const isBoss = marker.type.startsWith('boss') || marker.category === 'bosses';
+  const imgScale = isGrace ? 'transform: scale(1.15);' : isBoss ? 'transform: scale(1.1);' : '';
   const fallback = visual.fallbackUrl || '/icons/categories/consumables.png';
 
   const wishlistBadge = isWishlisted
@@ -546,7 +643,7 @@ export function createMarkerIcon(
 
   const html = `
     <div 
-      class="er-marker-floating ${isCollected ? 'collected' : ''} ${isWishlisted ? 'wishlisted' : ''}" 
+      class="er-marker-floating ${isBoss ? 'er-marker-boss' : ''} ${isCollected ? 'collected' : ''} ${isWishlisted ? 'wishlisted' : ''}" 
       style="width: ${size}px; height: ${size}px; --marker-glow: ${glow};"
     >
       <img 

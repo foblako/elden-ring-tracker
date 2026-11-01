@@ -201,8 +201,12 @@ namespace ErTracker
 
         static void Main(string[] args)
         {
-            Console.OutputEncoding = Encoding.UTF8;
-            Console.InputEncoding = Encoding.UTF8;
+            try
+            {
+                Console.OutputEncoding = Encoding.UTF8;
+                Console.InputEncoding = Encoding.UTF8;
+            }
+            catch {}
 
             long baseAddr = 0;
             long csMenuManOffset = 0x3D72840;

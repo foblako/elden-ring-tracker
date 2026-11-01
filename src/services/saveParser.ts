@@ -81,17 +81,17 @@ export function matchMarkersFromFlags(
   for (const m of allMarkers) {
     let flagMatched = false;
 
-    // In Randomizer mode, 6xxxx flags on item markers are recipe/item unlock flags,
-    // NOT physical world location flags! We skip 6xxxx flags and match strictly on physical flags.
+    // In Randomizer mode, 67xxx and 68xxx flags on item markers are recipe unlock flags,
+    // and 69xxx are note unlocks, NOT physical world location flags!
+    // We skip recipe flags on primary flagId and match strictly on physical flags (including dynamic altFlags).
     const isRecipeFlag =
-      isRandomizer && m.id.startsWith('item-') && m.flagId && m.flagId >= 60000 && m.flagId < 70000;
+      isRandomizer && m.id.startsWith('item-') && m.flagId && m.flagId >= 67000 && m.flagId < 70000;
 
     if (!isRecipeFlag && m.flagId && m.flagId > 0 && isFlagSet(m.flagId)) {
       flagMatched = true;
       matchedFlags.push(m.flagId);
     } else if (m.altFlags && m.altFlags.length > 0) {
       for (const af of m.altFlags) {
-        if (isRandomizer && m.id.startsWith('item-') && af >= 60000 && af < 70000) continue;
         if (af > 0 && isFlagSet(af)) {
           flagMatched = true;
           matchedFlags.push(af);
@@ -104,6 +104,40 @@ export function matchMarkersFromFlags(
       matchedMarkerIds.push(m.id);
       if (m.type === 'grace') gracesUnlocked++;
       else if (m.category === 'bosses' || m.type.startsWith('boss')) bossesDefeatedCount++;
+    }
+  }
+
+  // Boss & drop synchronization pass (both directions):
+  // 1. If a boss is defeated, automatically mark its drops as collected
+  // 2. If a boss's drop is collected, mark the boss as defeated
+  const matchedSet = new Set(matchedMarkerIds);
+  const bossMarkers = allMarkers.filter((m) => m.type.startsWith('boss') || m.category === 'bosses');
+
+  for (const item of allMarkers) {
+    if (item.type !== 'item' || !item.dropSource) continue;
+    const dName = item.dropSource.toLowerCase().replace(/['"’()]/g, '').trim();
+    let closestBoss: TrackerMarker | null = null;
+    let minDist = Infinity;
+    for (const b of bossMarkers) {
+      if (b.layer !== item.layer) continue;
+      const bName = b.name.toLowerCase().replace(/['"’()]/g, '').trim();
+      if (dName.includes(bName) || bName.includes(dName)) {
+        const dist = Math.hypot(item.px - b.px, item.py - b.py);
+        if (dist < minDist) {
+          minDist = dist;
+          closestBoss = b;
+        }
+      }
+    }
+    if (closestBoss && minDist < 1200) {
+      if (matchedSet.has(closestBoss.id) && !matchedSet.has(item.id)) {
+        matchedSet.add(item.id);
+        matchedMarkerIds.push(item.id);
+      } else if (matchedSet.has(item.id) && !matchedSet.has(closestBoss.id)) {
+        matchedSet.add(closestBoss.id);
+        matchedMarkerIds.push(closestBoss.id);
+        bossesDefeatedCount++;
+      }
     }
   }
 
@@ -252,7 +286,7 @@ export function parseSaveFile(
 }
 
 /** Decrypts entry payload if encrypted with AES-128-CBC, or returns plaintext body */
-function readEntryPayload(saveBytes: Uint8Array, entry: Bnd4Entry): Uint8Array {
+export function readEntryPayload(saveBytes: Uint8Array, entry: Bnd4Entry): Uint8Array {
   const block = saveBytes.subarray(entry.dataOffset, entry.dataOffset + entry.size);
   if (block.length < MD5_LEN + 16) {
     throw new Error(`Блок ${entry.name} слишком мал (${block.length} байт).`);
@@ -339,7 +373,7 @@ interface SlotWalkResult {
 }
 
 /** Walks one character slot payload to extract event flags, inventory, and player position */
-function walkSlotEventFlagsAndInventory(payload: Uint8Array, allMarkers: TrackerMarker[]): SlotWalkResult {
+export function walkSlotEventFlagsAndInventory(payload: Uint8Array, allMarkers: TrackerMarker[]): SlotWalkResult {
   const dataView = new DataView(payload.buffer, payload.byteOffset, payload.byteLength);
   const u32 = (o: number) => dataView.getUint32(o, true);
   const f32 = (o: number) => dataView.getFloat32(o, true);

@@ -272,3 +272,27 @@
   z-index: 10;
 }
 
+
+/* Boss marker styling: crisp circular battlefield insignia */
+.er-marker-floating.er-marker-boss {
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(40, 5, 5, 0.75) 0%, rgba(10, 0, 0, 0.9) 75%);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.6), inset 0 0 5px rgba(254, 202, 202, 0.35);
+  border: 1.5px solid rgba(239, 68, 68, 0.6);
+}
+.er-marker-floating.er-marker-boss .er-marker-img {
+  border-radius: 9999px;
+  padding: 1.5px;
+}
+.er-marker-floating.er-marker-boss:hover {
+  transform: scale(1.28);
+  box-shadow: 0 0 16px rgba(239, 68, 68, 0.9), inset 0 0 8px rgba(254, 202, 202, 0.6);
+  border-color: #f87171;
+}
+.er-marker-floating.er-marker-boss.collected {
+  opacity: 0.32;
+  filter: grayscale(100%);
+  background: rgba(10, 10, 10, 0.65);
+  box-shadow: none;
+  border-color: rgba(100, 100, 100, 0.4);
+}

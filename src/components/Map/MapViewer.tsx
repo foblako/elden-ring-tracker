@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import L from 'leaflet';
 import { useTracker } from '../../context/TrackerContext';
-import { filterMarkers } from '../../services/dataService';
+import { filterMarkers, getItemSpecificImage } from '../../services/dataService';
 import { createMarkerIcon, createWaypointIcon, resolveMarkerIconUrl } from './markerIcons';
 import type { TrackerMarker } from '../../types';
 
@@ -24,8 +24,8 @@ function computeDeclutteredPositions(
   const result = new Map<string, L.LatLng>();
   const zoom = map.getZoom();
 
-  // At high zoom levels (>= 5.2) or regional/world zoom (<= 4.2), preserve coordinates directly for 60fps performance
-  if (zoom >= 5.2 || zoom <= 4.2) {
+  // At ultra-high zoom (>= 7) or world overview (<= 2), preserve coordinates directly
+  if (zoom >= 7 || zoom <= 2) {
     for (let i = 0; i < markers.length; i++) {
       const m = markers[i];
       result.set(m.id, map.unproject([m.px, m.py], 6));
@@ -33,8 +33,8 @@ function computeDeclutteredPositions(
     return result;
   }
 
-  // Fast O(N) spatial grid collision decluttering (28px screen-space buckets)
-  const cellSize = 28;
+  // Fast O(N) spatial grid collision decluttering (26px screen-space buckets)
+  const cellSize = 26;
   const grid = new Map<string, TrackerMarker[]>();
 
   for (let i = 0; i < markers.length; i++) {
@@ -54,17 +54,32 @@ function computeDeclutteredPositions(
       const m = bucket[0];
       result.set(m.id, map.unproject([m.px, m.py], 6));
     } else {
+      // Prioritize Bosses and Graces to anchor in center
+      bucket.sort((a, b) => {
+        const aScore = a.type.startsWith('boss') ? 3 : a.type === 'grace' ? 2 : 1;
+        const bScore = b.type.startsWith('boss') ? 3 : b.type === 'grace' ? 2 : 1;
+        return bScore - aScore;
+      });
+
       const first = bucket[0];
       const basePt = map.latLngToLayerPoint(map.unproject([first.px, first.py], 6));
       const N = bucket.length;
-      const radius = Math.min(36, 16 + (N - 2) * 4);
+      const hasPriorityCenter = first.type.startsWith('boss') || first.type === 'grace';
+      const radius = Math.min(32, 22 + (N - 2) * 3);
+
       for (let k = 0; k < N; k++) {
-        const theta = (2 * Math.PI * k) / N - Math.PI / 2;
-        const offsetPt = L.point(
-          basePt.x + radius * Math.cos(theta),
-          basePt.y + radius * Math.sin(theta)
-        );
-        result.set(bucket[k].id, map.layerPointToLatLng(offsetPt));
+        if (k === 0 && hasPriorityCenter) {
+          result.set(bucket[0].id, map.unproject([first.px, first.py], 6));
+        } else {
+          const countToFan = hasPriorityCenter ? N - 1 : N;
+          const index = hasPriorityCenter ? k - 1 : k;
+          const theta = (-Math.PI / 3) + (2 * Math.PI * index) / countToFan;
+          const offsetPt = L.point(
+            basePt.x + radius * Math.cos(theta),
+            basePt.y + radius * Math.sin(theta)
+          );
+          result.set(bucket[k].id, map.layerPointToLatLng(offsetPt));
+        }
       }
     }
   });
@@ -218,7 +233,7 @@ export const MapViewer: React.FC = () => {
   const createPopupContent = useCallback((m: TrackerMarker, isCollected: boolean, isWishlisted: boolean) => {
     const visual = resolveMarkerIconUrl(m, itemImages);
     const container = document.createElement('div');
-    container.className = 'p-3 max-w-[280px] bg-[#161a24] text-[#e2e8f0] font-sans rounded-xl border border-[#2b3346] shadow-2xl';
+    container.className = 'p-3 w-[300px] max-w-[320px] bg-[#161a24] text-[#e2e8f0] font-sans rounded-xl border border-[#2b3346] shadow-2xl';
 
     const header = document.createElement('div');
     header.className = 'border-b border-[#242b3b] pb-2.5';
@@ -226,8 +241,71 @@ export const MapViewer: React.FC = () => {
     const fallbackImg = visual.fallbackUrl || '/icons/categories/consumables.png';
     const mainTitle = m.nameRu || m.name;
     const subTitle = m.nameRu && m.nameRu !== m.name ? m.name : '';
+    const isBoss = m.type.startsWith('boss') || m.category === 'bosses';
+
+    const screenshotUrl = m.mediaUrl || (isBoss && itemImages ? getItemSpecificImage(m.name, itemImages) : null);
+    const screenshotBannerHtml = screenshotUrl
+      ? `<div class="w-full h-36 rounded-lg overflow-hidden mb-2.5 border border-[#2e374d] relative shadow-md bg-black/60 group cursor-pointer" onclick="window.open('${screenshotUrl}', '_blank')" title="Нажмите, чтобы открыть изображение в полном размере">
+           <img 
+             src="${screenshotUrl}" 
+             alt="${m.name}" 
+             class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+             loading="lazy"
+             onerror="this.parentElement.style.display='none'"
+           />
+           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
+           <div class="absolute bottom-1.5 right-2 text-[10px] text-zinc-300 bg-black/75 px-1.5 py-0.5 rounded backdrop-blur-sm pointer-events-none flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+             <span>🔍</span> <span>Увеличить</span>
+           </div>
+         </div>`
+      : '';
+
+    let descriptionHtml = '';
+    if (m.description) {
+      const formatted = m.description.trim()
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\*\*([^*]+)\*\*/g, '<strong class="text-amber-200/90 font-semibold">$1</strong>')
+        .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 underline underline-offset-2 transition-colors">$1</a>');
+
+      const lines = formatted.split('\n').map((line) => {
+        const tr = line.trim();
+        if (tr.startsWith('- ') || tr.startsWith('* ')) {
+          return `<li class="ml-3 list-disc text-zinc-300 leading-relaxed">${tr.slice(2)}</li>`;
+        }
+        return tr ? `<p class="leading-relaxed mb-1 text-zinc-300 last:mb-0">${tr}</p>` : '<div class="h-1"></div>';
+      }).join('');
+
+      descriptionHtml = `
+        <div class="mt-2.5 pt-2 border-t border-[#242b3b] text-xs leading-relaxed max-h-48 overflow-y-auto pr-1 text-zinc-300 custom-scrollbar">
+          ${lines}
+        </div>
+      `;
+    }
+
+    let bossDropsHtml = '';
+    if (isBoss) {
+      const bName = m.name.toLowerCase().replace(/['"’()]/g, '').trim();
+      const drops = allMarkers.filter(
+        (it) =>
+          it.type === 'item' &&
+          it.dropSource &&
+          it.layer === m.layer &&
+          it.dropSource.toLowerCase().replace(/['"’()]/g, '').trim().includes(bName)
+      );
+      if (drops.length > 0) {
+        const dropNames = drops.map((d) => d.nameRu || d.name).slice(0, 3).join(', ');
+        bossDropsHtml = `
+          <div class="mt-2 text-[11px] text-amber-200/90 bg-amber-950/40 px-2.5 py-1.5 rounded-lg border border-amber-800/40 flex items-start gap-1.5 leading-tight">
+            <span class="text-xs">🎁</span>
+            <div><span class="font-bold text-amber-400">Дроп:</span> <span class="text-zinc-200">${dropNames}</span></div>
+          </div>
+        `;
+      }
+    }
 
     header.innerHTML = `
+      ${screenshotBannerHtml}
       <div class="flex items-start gap-2.5">
         <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center p-0.5">
           <img 
@@ -261,6 +339,8 @@ export const MapViewer: React.FC = () => {
         <div class="mt-1.5 text-[11px] text-amber-200/90 bg-amber-950/30 px-2 py-0.5 rounded border border-amber-800/30">
           ⚔️ ${m.dropSourceRu || m.dropSource}
         </div>` : ''}
+      ${bossDropsHtml}
+      ${descriptionHtml}
     `;
     container.appendChild(header);
 
@@ -414,6 +494,10 @@ export const MapViewer: React.FC = () => {
       if (existing) {
         // Reuse existing Leaflet Marker and update decluttered position smoothly
         existing.marker.setLatLng(latLng);
+        const isBoss = m.type.startsWith('boss') || m.category === 'bosses';
+        const isGrace = m.type === 'grace' || m.category === 'graces';
+        const zIndexOffset = isCollected ? 0 : (isBoss ? 200 : isGrace ? 150 : (isWishlisted ? 100 : 10));
+        existing.marker.setZIndexOffset(zIndexOffset);
 
         if (
           existing.isCollected !== isCollected ||
@@ -434,7 +518,10 @@ export const MapViewer: React.FC = () => {
       } else {
         // Mount new marker at decluttered position
         const icon = createMarkerIcon(m, isCollected, isWishlisted, markerScale, itemImages);
-        const marker = L.marker(latLng, { icon });
+        const isBoss = m.type.startsWith('boss') || m.category === 'bosses';
+        const isGrace = m.type === 'grace' || m.category === 'graces';
+        const zIndexOffset = isBoss ? 200 : isGrace ? 150 : (isWishlisted ? 100 : 0);
+        const marker = L.marker(latLng, { icon, zIndexOffset });
 
         marker.bindPopup(() => createPopupContent(m, isCollected, isWishlisted), {
           minWidth: 260,

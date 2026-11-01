@@ -31,6 +31,8 @@ export interface TrackerMarker {
   dropSource?: string;
   dropSourceRu?: string;
   description?: string;
+  mediaUrl?: string;
+  mapGenieId?: number;
   rarity?: number;
 }
 

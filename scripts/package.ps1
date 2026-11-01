@@ -19,8 +19,8 @@ if ($LASTEXITCODE -ne 0) { throw "Server bundle failed!" }
 # 3. Compile RAM Tracker & Launcher
 Write-Host "[3/5] Compiling C# executables..." -ForegroundColor Yellow
 $csc = "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
-& $csc /nologo /optimize+ /target:exe /out:tools\er_tracker.exe tools\er_tracker\Program.cs
-& $csc /nologo /optimize+ /target:exe /out:launcher\EldenRingTracker.exe launcher\Program.cs
+& $csc /nologo /optimize+ /target:winexe /out:tools\er_tracker.exe tools\er_tracker\Program.cs
+& $csc /nologo /optimize+ /target:winexe /win32icon:launcher\app.ico /r:System.Windows.Forms.dll /r:System.Drawing.dll /out:launcher\EldenRingTracker.exe launcher\Program.cs
 
 # 4. Assemble release folder
 Write-Host "[4/5] Assembling release package..." -ForegroundColor Yellow

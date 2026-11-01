@@ -196,6 +196,71 @@ function getLatestSpoilerLog(customDir?: string) {
   }
 }
 
+let cachedEnrichedMarkers: any[] | null = null;
+let cachedEnrichedMarkersKey = '';
+
+function getEnrichedMarkers(): any[] {
+  const baseMarkers = getCachedMarkers();
+  const spoiler = getLatestSpoilerLog();
+  const spoilerMtime = spoiler.available ? spoiler.mtime : 0;
+  const currentKey = `${cachedMarkersMtime}:${spoilerMtime}`;
+  if (cachedEnrichedMarkers && cachedEnrichedMarkersKey === currentKey) {
+    return cachedEnrichedMarkers;
+  }
+
+  if (!spoiler.available || !spoiler.replacements) {
+    cachedEnrichedMarkers = baseMarkers;
+    cachedEnrichedMarkersKey = currentKey;
+    return cachedEnrichedMarkers;
+  }
+
+  // Build item name -> permanent flags mapping
+  const itemNameToFlags = new Map<string, number[]>();
+  function addFlag(name: string, flag: number) {
+    if (!name || flag <= 0) return;
+    const clean = name.toLowerCase().trim().replace(/\s*\d+x$/, '').trim();
+    if (!itemNameToFlags.has(clean)) itemNameToFlags.set(clean, []);
+    if (!itemNameToFlags.get(clean)!.includes(flag)) itemNameToFlags.get(clean)!.push(flag);
+  }
+
+  for (const m of baseMarkers) {
+    if (m.flagId && m.flagId >= 60000 && m.flagId < 70000) {
+      addFlag(m.name, m.flagId);
+      if (m.name.includes('+')) {
+        for (const part of m.name.split('+')) addFlag(part, m.flagId);
+      }
+    }
+    if (m.altFlags) {
+      for (const af of m.altFlags) {
+        if (af >= 60000 && af < 70000) {
+          addFlag(m.name, af);
+          if (m.name.includes('+')) {
+            for (const part of m.name.split('+')) addFlag(part, af);
+          }
+        }
+      }
+    }
+  }
+
+  const enriched = baseMarkers.map((marker: any) => {
+    const rep = spoiler.replacements[marker.id];
+    if (!rep) return marker;
+    const rClean = rep.randomized.toLowerCase().replace(/\s*\d+x$/, '').trim();
+    const flagsForRandomized = itemNameToFlags.get(rClean);
+    if (!flagsForRandomized || flagsForRandomized.length === 0) return marker;
+
+    const copy = { ...marker, altFlags: [...(marker.altFlags || [])] };
+    for (const f of flagsForRandomized) {
+      if (!copy.altFlags.includes(f)) copy.altFlags.push(f);
+    }
+    return copy;
+  });
+
+  cachedEnrichedMarkers = enriched;
+  cachedEnrichedMarkersKey = currentKey;
+  return cachedEnrichedMarkers;
+}
+
 function getQuickSlots(filePath: string) {
   try {
     if (!fs.existsSync(filePath)) return [];
@@ -495,7 +560,7 @@ const server = http.createServer((req, res) => {
 
       const buf = fs.readFileSync(targetPath);
       const arrayBuffer = buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
-      const markers = getCachedMarkers();
+      const markers = isRandomizer ? getEnrichedMarkers() : getCachedMarkers();
       const slots = parseSaveFile(arrayBuffer, markers, targetSlot >= 0 ? targetSlot : undefined, {
         isRandomizer,
       });
@@ -615,7 +680,6 @@ function cleanup() {
 
 process.on('SIGINT', cleanup);
 process.on('SIGTERM', cleanup);
-process.on('exit', cleanup);
 
 ensureTrackerProcess();
 

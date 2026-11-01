@@ -82,6 +82,14 @@ export function getItemSpecificImage(name: string, imagesMap: Record<string, str
   const noApos = clean.replace(/'/g, '');
   if (imagesMap[noApos]) return imagesMap[noApos];
 
+  // 9. Pure alphanumeric fallback (e.g. for complex punctuation like "Troll's Roar", "Stamp (Sweep)")
+  const alphaNum = norm.replace(/[^a-z0-9]/g, '');
+  if (imagesMap[alphaNum]) return imagesMap[alphaNum];
+  if (norm.startsWith('ash of war:') || norm.startsWith('ashes of war:')) {
+    const subAlpha = norm.replace(/^ash(es)? of war:\s*/i, '').replace(/[^a-z0-9]/g, '');
+    if (imagesMap[subAlpha]) return imagesMap[subAlpha];
+  }
+
   return null;
 }
 

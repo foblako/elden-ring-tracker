@@ -1,50 +1,80 @@
 using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
-using System.Text;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace EldenRingTrackerLauncher
 {
-    class Program
+    static class Program
     {
-        static Process serverProcess = null;
+        private static Mutex singleInstanceMutex = null;
+        private static Process serverProcess = null;
+        private static NotifyIcon trayIcon = null;
+        private static string serverUrl = "http://localhost:5173";
 
-        static void Main(string[] args)
+        [STAThread]
+        static void Main()
         {
-            Console.OutputEncoding = Encoding.UTF8;
-            Console.Title = "Elden Ring Map & Live Tracker";
-
             string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            string logFile = Path.Combine(baseDir, "launcher.log");
+            Action<string> log = (msg) => {
+                try { File.AppendAllText(logFile, DateTime.Now.ToString("HH:mm:ss.fff") + " " + msg + Environment.NewLine); } catch {}
+            };
 
-            // 1. Locate node.exe
+            log("Starting launcher...");
+
+            // 1. Single-instance protection
+            bool isNewInstance = false;
+            singleInstanceMutex = new Mutex(true, "EldenRingTracker_SingleInstance_Mutex", out isNewInstance);
+
+            if (!isNewInstance)
+            {
+                log("Already running - opening browser and exiting.");
+                try
+                {
+                    Process.Start(new ProcessStartInfo(serverUrl) { UseShellExecute = true });
+                }
+                catch {}
+                return;
+            }
+
+            log("Single instance acquired.");
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+            Application.ThreadException += (s, e) => {
+                log("ThreadException: " + e.Exception.ToString());
+            };
+            AppDomain.CurrentDomain.UnhandledException += (s, e) => {
+                log("UnhandledException: " + e.ExceptionObject.ToString());
+            };
+
+            // 2. Locate node.exe
             string nodePath = Path.Combine(baseDir, "node.exe");
             if (!File.Exists(nodePath))
             {
-                // Fallback to tools/node.exe or bin/node.exe
                 string alt1 = Path.Combine(baseDir, "tools", "node.exe");
                 string alt2 = Path.Combine(baseDir, "bin", "node.exe");
                 if (File.Exists(alt1)) nodePath = alt1;
                 else if (File.Exists(alt2)) nodePath = alt2;
-                else
-                {
-                    // Check system PATH
-                    nodePath = FindInPath("node.exe");
-                }
+                else nodePath = FindInPath("node.exe");
             }
 
             if (string.IsNullOrEmpty(nodePath) || !File.Exists(nodePath))
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n[ОШИБКА] Файл node.exe не найден!");
-                Console.ResetColor();
-                Console.WriteLine("Убедитесь, что архив с программой распакован полностью.");
-                Console.WriteLine("\nНажмите любую клавишу для выхода...");
-                Console.ReadKey();
+                MessageBox.Show(
+                    "Файл node.exe не найден!\n\nУбедитесь, что архив с программой распакован полностью.",
+                    "Elden Ring Tracker",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
                 return;
             }
 
-            // 2. Locate server bundle
+            // 3. Locate server bundle
             string serverScript = Path.Combine(baseDir, "server.bundle.cjs");
             if (!File.Exists(serverScript))
             {
@@ -54,32 +84,16 @@ namespace EldenRingTrackerLauncher
 
             if (!File.Exists(serverScript))
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n[ОШИБКА] Файл server.bundle.cjs не найден!");
-                Console.ResetColor();
-                Console.WriteLine("Убедитесь, что все файлы программы находятся в одной папке.");
-                Console.WriteLine("\nНажмите любую клавишу для выхода...");
-                Console.ReadKey();
+                MessageBox.Show(
+                    "Файл server.bundle.cjs не найден!\n\nУбедитесь, что все файлы программы находятся в одной папке.",
+                    "Elden Ring Tracker",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
                 return;
             }
 
-            // Register cleanup handlers
-            Console.CancelKeyPress += (s, e) => Cleanup();
-            AppDomain.CurrentDomain.ProcessExit += (s, e) => Cleanup();
-
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine(@"
-   ______ __     __             ____  _             ______              __             
-  / ____// /____/ /___   ____  / __ \(_)___  ____ _/_  __/________ _____/ /_____  _____
- / __/  / // __  // _ \ / __ \/ /_/ // // __ \/ __ `// /  / ___/ __ `/ ___// // _ \/ ___/
-/ /___ / // /_/ //  __// / / // _, _// // / / / /_/ // /  / /  / /_/ / /__ / ,< /  __/ /    
-/_____//_/ \__,_/ \___//_/ /_//_/ |_|/_//_/ /_/\__, //_/  /_/   \__,_/\___//_/|_|\___/_/     
-                                              /____/                                         ");
-            Console.ResetColor();
-            Console.WriteLine("  Интерактивная карта и трекер прогресса (Shadow of the Erdtree Ready)");
-            Console.WriteLine("  ---------------------------------------------------------------------");
-            Console.WriteLine("  [1/3] Запуск локального сервера...");
-
+            // 4. Start background server process (Zero Console Window!)
             try
             {
                 ProcessStartInfo psi = new ProcessStartInfo
@@ -90,41 +104,23 @@ namespace EldenRingTrackerLauncher
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
-                    CreateNoWindow = true,
-                    StandardOutputEncoding = Encoding.UTF8,
-                    StandardErrorEncoding = Encoding.UTF8
+                    CreateNoWindow = true
                 };
 
                 serverProcess = new Process { StartInfo = psi };
-
-                string serverUrl = "http://localhost:5173";
-                bool isReady = false;
                 AutoResetEvent readyEvent = new AutoResetEvent(false);
 
-                serverProcess.OutputDataReceived += (sender, lineArgs) =>
+                serverProcess.OutputDataReceived += (s, e) =>
                 {
-                    if (string.IsNullOrEmpty(lineArgs.Data)) return;
-                    if (lineArgs.Data.Contains("[SERVER_READY]"))
+                    if (string.IsNullOrEmpty(e.Data)) return;
+                    if (e.Data.Contains("[SERVER_READY]"))
                     {
-                        int idx = lineArgs.Data.IndexOf("http://");
+                        int idx = e.Data.IndexOf("http://");
                         if (idx >= 0)
                         {
-                            serverUrl = lineArgs.Data.Substring(idx).Trim();
+                            serverUrl = e.Data.Substring(idx).Trim();
                         }
-                        isReady = true;
                         readyEvent.Set();
-                    }
-                };
-
-                serverProcess.ErrorDataReceived += (sender, lineArgs) =>
-                {
-                    if (!string.IsNullOrEmpty(lineArgs.Data))
-                    {
-                        // Filter out normal debug warnings
-                        if (!lineArgs.Data.Contains("ExperimentalWarning") && !lineArgs.Data.Contains("DeprecationWarning"))
-                        {
-                            // keep silent or log
-                        }
                     }
                 };
 
@@ -132,68 +128,143 @@ namespace EldenRingTrackerLauncher
                 serverProcess.BeginOutputReadLine();
                 serverProcess.BeginErrorReadLine();
 
-                // Wait up to 10 seconds for server to report ready
-                readyEvent.WaitOne(10000);
+                // Wait up to 10 seconds for server to be ready
+                bool isReady = readyEvent.WaitOne(10000);
+                log("Server ready: " + isReady + " URL: " + serverUrl);
 
-                Console.WriteLine("  [2/3] Мониторинг сохранений и памяти игры активирован.");
-                Console.WriteLine("  [3/3] Открытие карты в браузере...");
-
+                // Open browser
                 try
                 {
                     Process.Start(new ProcessStartInfo(serverUrl) { UseShellExecute = true });
                 }
-                catch
+                catch (Exception bex) { log("Browser open error: " + bex.Message); }
+
+                // 5. Setup System Tray Icon
+                trayIcon = new NotifyIcon();
+                trayIcon.Text = "Elden Ring Tracker (Работает)";
+
+                Icon appIcon = null;
+                try
                 {
-                    Console.WriteLine("  [!] Не удалось открыть браузер автоматически. Откройте вручную: " + serverUrl);
+                    appIcon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
                 }
+                catch {}
 
-                Console.WriteLine("\n  =====================================================================");
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("  [✓] ПРОГРАММА УСПЕШНО ЗАПУЩЕНА И ГОТОВА К ИГРЕ!");
-                Console.ResetColor();
-                Console.WriteLine("  ---------------------------------------------------------------------");
-                Console.WriteLine("  * Адрес карты:            " + serverUrl);
-                Console.WriteLine("  * Сохранения (%APPDATA%): Автоматическое сканирование");
-                Console.WriteLine("  * Чтение памяти игры:     Автоматически при запуске eldenring.exe");
-                Console.WriteLine("  ---------------------------------------------------------------------");
-                Console.ForegroundColor = ConsoleColor.DarkGray;
-                Console.WriteLine("  Чтобы закрыть трекер, закройте это окно или нажмите [Enter] в любой момент.\n");
-                Console.ResetColor();
+                if (appIcon == null)
+                {
+                    appIcon = SystemIcons.Application;
+                }
+                trayIcon.Icon = appIcon;
+                trayIcon.Visible = true;
 
-                Console.ReadLine();
-                Cleanup();
+                // Context Menu
+                ContextMenu contextMenu = new ContextMenu();
+
+                MenuItem itemOpen = new MenuItem("🗺️ Открыть карту в браузере", (s, e) =>
+                {
+                    try { Process.Start(new ProcessStartInfo(serverUrl) { UseShellExecute = true }); } catch {}
+                });
+                itemOpen.DefaultItem = true; // Bold font, triggers on click
+                contextMenu.MenuItems.Add(itemOpen);
+
+                contextMenu.MenuItems.Add(new MenuItem("📁 Папка сохранений Elden Ring", (s, e) =>
+                {
+                    try
+                    {
+                        string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                        string savesPath = Path.Combine(appData, "EldenRing");
+                        if (Directory.Exists(savesPath))
+                        {
+                            Process.Start("explorer.exe", savesPath);
+                        }
+                        else
+                        {
+                            Process.Start("explorer.exe", appData);
+                        }
+                    }
+                    catch {}
+                }));
+
+                contextMenu.MenuItems.Add("-");
+
+                ApplicationContext appContext = new ApplicationContext();
+
+                contextMenu.MenuItems.Add(new MenuItem("❌ Выход", (s, e) =>
+                {
+                    Cleanup();
+                    try { appContext.ExitThread(); } catch {}
+                    Application.Exit();
+                }));
+
+                trayIcon.ContextMenu = contextMenu;
+
+                trayIcon.DoubleClick += (s, e) =>
+                {
+                    try { Process.Start(new ProcessStartInfo(serverUrl) { UseShellExecute = true }); } catch {}
+                };
+
+                // Notification tip
+                trayIcon.ShowBalloonTip(
+                    3000,
+                    "Elden Ring Tracker",
+                    "Карта открыта в браузере. Управление доступно в трее.",
+                    ToolTipIcon.Info
+                );
+
+                Application.ApplicationExit += (s, e) => { log("ApplicationExit"); Cleanup(); };
+                AppDomain.CurrentDomain.ProcessExit += (s, e) => { log("ProcessExit"); Cleanup(); };
+
+                log("Entering Application.Run(appContext)...");
+                Application.Run(appContext);
+                log("Application.Run(appContext) exited.");
             }
             catch (Exception ex)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n[ОШИБКА ЗАПУСКА]: " + ex.Message);
-                Console.ResetColor();
-                Console.WriteLine("Нажмите любую клавишу для выхода...");
-                Console.ReadKey();
+                log("Exception: " + ex.ToString());
+                MessageBox.Show(
+                    "Ошибка запуска программы:\n" + ex.Message,
+                    "Elden Ring Tracker",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                Cleanup();
             }
         }
 
-        static void Cleanup()
+        private static void Cleanup()
         {
             try
             {
+                if (trayIcon != null)
+                {
+                    trayIcon.Visible = false;
+                    trayIcon.Dispose();
+                    trayIcon = null;
+                }
+
                 if (serverProcess != null && !serverProcess.HasExited)
                 {
                     serverProcess.Kill();
                     serverProcess = null;
                 }
 
-                // Also kill any orphaned er_tracker.exe
                 Process[] trackers = Process.GetProcessesByName("er_tracker");
                 foreach (var t in trackers)
                 {
                     try { t.Kill(); } catch {}
                 }
+
+                if (singleInstanceMutex != null)
+                {
+                    singleInstanceMutex.ReleaseMutex();
+                    singleInstanceMutex.Dispose();
+                    singleInstanceMutex = null;
+                }
             }
             catch {}
         }
 
-        static string FindInPath(string filename)
+        private static string FindInPath(string filename)
         {
             string pathEnv = Environment.GetEnvironmentVariable("PATH");
             if (string.IsNullOrEmpty(pathEnv)) return null;

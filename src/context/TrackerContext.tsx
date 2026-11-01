@@ -335,11 +335,64 @@ export const TrackerProvider: React.FC<{ children: ReactNode }> = ({ children })
           return copy;
         });
 
-        const updated = { ...prof.collectedIds };
-        if (nextState) {
-          updated[markerId] = true;
-        } else {
-          delete updated[markerId];
+                const updated = { ...prof.collectedIds };
+        const affectedIds = [markerId];
+
+        // Boss and Loot synchronization:
+        // If a boss is defeated, automatically mark its drops as collected!
+        // If all drops of a boss are found, mark the boss defeated!
+        const targetMarker = allMarkers.find((m) => m.id === markerId);
+        if (targetMarker) {
+          const isBoss = targetMarker.type.startsWith('boss') || targetMarker.category === 'bosses';
+          if (isBoss) {
+            const bName = targetMarker.name.toLowerCase().replace(/['"’()]/g, '').trim();
+            for (const m of allMarkers) {
+              if (m.type === 'item' && m.dropSource && m.layer === targetMarker.layer) {
+                const dName = m.dropSource.toLowerCase().replace(/['"’()]/g, '').trim();
+                if (dName.includes(bName) || bName.includes(dName)) {
+                  const dist = Math.hypot(m.px - targetMarker.px, m.py - targetMarker.py);
+                  if (dist < 1200) {
+                    affectedIds.push(m.id);
+                  }
+                }
+              }
+            }
+          } else if (targetMarker.type === 'item' && targetMarker.dropSource) {
+            const dName = targetMarker.dropSource.toLowerCase().replace(/['"’()]/g, '').trim();
+            let closestBoss: TrackerMarker | null = null;
+            let minDist = Infinity;
+            for (const m of allMarkers) {
+              if ((m.type.startsWith('boss') || m.category === 'bosses') && m.layer === targetMarker.layer) {
+                const bName = m.name.toLowerCase().replace(/['"’()]/g, '').trim();
+                if (dName.includes(bName) || bName.includes(dName)) {
+                  const dist = Math.hypot(m.px - targetMarker.px, m.py - targetMarker.py);
+                  if (dist < minDist && dist < 1200) {
+                    minDist = dist;
+                    closestBoss = m;
+                  }
+                }
+              }
+            }
+            if (closestBoss) {
+              affectedIds.push(closestBoss.id);
+            }
+          }
+        }
+
+        setManualOverrides((prevOverrides) => {
+          const copy = { ...prevOverrides };
+          for (const id of affectedIds) {
+            copy[id] = nextState;
+          }
+          return copy;
+        });
+
+        for (const id of affectedIds) {
+          if (nextState) {
+            updated[id] = true;
+          } else {
+            delete updated[id];
+          }
         }
         return { ...prof, collectedIds: updated, updatedAt: Date.now() };
       })
