@@ -78,6 +78,16 @@ export function matchMarkersFromFlags(
     return byteOffset < rawFlags.length && ((rawFlags[byteOffset] & (1 << bitPos)) !== 0);
   };
 
+  const isFlagOrSubFlagSet = (flagId: number): boolean => {
+    if (isFlagSet(flagId)) return true;
+    // In FromSoftware engine, world item lots (10xxxx70xx, 18xxx70xx, 3xxxx70xx) and bosses
+    // frequently trigger sub-lot flags flagId + 1 or flagId + 2 on pickup/kill.
+    if (flagId >= 10000000 && flagId % 10 === 0) {
+      if (isFlagSet(flagId + 1) || isFlagSet(flagId + 2)) return true;
+    }
+    return false;
+  };
+
   for (const m of allMarkers) {
     let flagMatched = false;
 
@@ -87,12 +97,12 @@ export function matchMarkersFromFlags(
     const isRecipeFlag =
       isRandomizer && m.id.startsWith('item-') && m.flagId && m.flagId >= 67000 && m.flagId < 70000;
 
-    if (!isRecipeFlag && m.flagId && m.flagId > 0 && isFlagSet(m.flagId)) {
+    if (!isRecipeFlag && m.flagId && m.flagId > 0 && isFlagOrSubFlagSet(m.flagId)) {
       flagMatched = true;
       matchedFlags.push(m.flagId);
     } else if (m.altFlags && m.altFlags.length > 0) {
       for (const af of m.altFlags) {
-        if (af > 0 && isFlagSet(af)) {
+        if (af > 0 && isFlagOrSubFlagSet(af)) {
           flagMatched = true;
           matchedFlags.push(af);
           break;

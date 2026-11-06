@@ -5,11 +5,8 @@ import {
   Compass,
   Search,
   CheckCircle2,
-  Upload,
   BarChart3,
-  Plus,
   User,
-  Trash2,
   X,
   FolderOpen,
   SlidersHorizontal,
@@ -38,11 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const {
     filter,
     setFilter,
-    profiles,
     currentProfile,
-    createProfile,
-    switchProfile,
-    deleteProfile,
     activeRoute,
     liveSyncState,
     playerLocation,
@@ -53,9 +46,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     setIsRandomizer,
   } = useTracker();
 
-  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
-  const [newProfileName, setNewProfileName] = useState('');
-  const [isCreatingProfile, setIsCreatingProfile] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   // Debounced search to prevent re-filtering 4800 items on every single keypress
@@ -92,21 +82,21 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const layerOptions: { id: MapLayerId; label: string; icon: string }[] = [
-    { id: 'base-game', label: 'Междуземье', icon: '🌍' },
-    { id: 'base-game-underground', label: 'Подземелья', icon: '🌌' },
-    { id: 'dlc', label: 'Царство Теней (DLC)', icon: '🌑' },
+  const layerOptions: { id: MapLayerId; label: string; shortLabel: string; icon: string }[] = [
+    { id: 'base-game', label: 'Междуземье', shortLabel: 'Междуземье', icon: '🌍' },
+    { id: 'base-game-underground', label: 'Подземелья', shortLabel: 'Подземелья', icon: '🌌' },
+    { id: 'dlc', label: 'Царство Теней (DLC)', shortLabel: 'DLC', icon: '🌑' },
   ];
 
   return (
-    <header className="h-14 bg-[#0a0c12]/95 border-b border-[#212534] px-3.5 flex items-center justify-between gap-2.5 z-30 backdrop-blur-md select-none">
+    <header className="h-14 bg-[#0a0c12]/95 border-b border-[#212534] px-2.5 sm:px-3.5 flex items-center justify-between gap-1.5 sm:gap-2.5 z-30 backdrop-blur-md select-none w-full max-w-full overflow-hidden">
       {/* Brand & Layer Switcher */}
-      <div className="flex items-center gap-3 flex-shrink-0">
+      <div className="flex items-center gap-2 sm:gap-3 shrink-0">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#c8aa6e] to-[#8c6d37] flex items-center justify-center shadow-[0_0_12px_rgba(200,170,110,0.35)] border border-[#f5d38a]/40 flex-shrink-0">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#c8aa6e] to-[#8c6d37] flex items-center justify-center shadow-[0_0_12px_rgba(200,170,110,0.35)] border border-[#f5d38a]/40 shrink-0">
             <span className="font-cinzel font-black text-black text-xs tracking-wider">ER</span>
           </div>
-          <div className="hidden lg:block">
+          <div className="hidden 2xl:block">
             <h1 className="font-cinzel font-bold text-xs text-[#f5d38a] leading-none tracking-wider">
               ELDEN RING
             </h1>
@@ -129,7 +119,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   }
                   setFilter({ activeLayer: l.id });
                 }}
-                className={`px-2.5 py-1 rounded-md text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
+                className={`px-2 py-1 sm:px-2.5 sm:py-1 rounded-md text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
                   isActive
                     ? 'bg-[#c8aa6e] text-black font-semibold shadow-sm'
                     : 'text-zinc-400 hover:text-zinc-200 hover:bg-[#181d2a]'
@@ -137,7 +127,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 title={l.label}
               >
                 <span>{l.icon}</span>
-                <span className="hidden md:inline">{l.label}</span>
+                <span className="hidden xl:inline">{l.label}</span>
+                <span className="hidden md:inline xl:hidden">{l.shortLabel}</span>
               </button>
             );
           })}
@@ -145,15 +136,15 @@ export const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       {/* Search Input with Hotkey */}
-      <div className="flex-1 max-w-sm mx-1 relative">
-        <Search className="w-3.5 h-3.5 text-zinc-500 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="flex-1 min-w-[90px] sm:min-w-[130px] max-w-xs sm:max-w-sm mx-1 relative">
+        <Search className="w-3.5 h-3.5 text-zinc-500 absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
         <input
           ref={searchInputRef}
           type="text"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
-          placeholder="Поиск лута, оружия, боссов, благодатей..."
-          className="w-full bg-[#11141e] border border-[#23283a] focus:border-[#c8aa6e]/80 focus:ring-1 focus:ring-[#c8aa6e]/30 rounded-lg pl-8 pr-12 py-1.5 text-xs text-zinc-200 placeholder-zinc-500 outline-none transition-all"
+          placeholder="Поиск маркеров..."
+          className="w-full bg-[#11141e] border border-[#23283a] focus:border-[#c8aa6e]/80 focus:ring-1 focus:ring-[#c8aa6e]/30 rounded-lg pl-7 sm:pl-8 pr-7 sm:pr-10 py-1.5 text-xs text-zinc-200 placeholder-zinc-500 outline-none transition-all truncate"
         />
         {searchInput ? (
           <button
@@ -161,7 +152,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               setSearchInput('');
               setFilter({ searchQuery: '' });
             }}
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white p-0.5"
+            className="absolute right-2 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white p-0.5 cursor-pointer"
             title="Очистить поиск"
           >
             <X className="w-3.5 h-3.5" />
@@ -173,42 +164,43 @@ export const Navbar: React.FC<NavbarProps> = ({
         )}
       </div>
 
-      {/* Actions & Profiles */}
-      <div className="flex items-center gap-2 flex-shrink-0">
+      {/* Actions & Character Badge */}
+      <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
         {/* MapGenie Sidebar Toggle */}
         <button
           onClick={onToggleSidebar}
-          className={`px-2.5 py-1.5 rounded-lg border text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+          className={`px-2 sm:px-2.5 py-1.5 rounded-lg border text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
             !isSidebarCollapsed
               ? 'bg-amber-950/80 text-amber-200 border-amber-500/80 shadow-[0_0_10px_rgba(200,170,110,0.3)]'
               : 'bg-[#11141e] text-zinc-300 border-[#212638] hover:text-[#f5d38a] hover:border-amber-500/50 hover:bg-[#181d2a]'
           }`}
           title="Показать / скрыть боковую панель категорий MapGenie"
         >
-          <SlidersHorizontal className="w-3.5 h-3.5 text-amber-400" />
-          <span className="hidden sm:inline">Категории MapGenie</span>
+          <SlidersHorizontal className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+          <span className="hidden 2xl:inline">Категории MapGenie</span>
+          <span className="hidden md:inline 2xl:hidden">Категории</span>
         </button>
 
         {/* The Core MapGenie "Hide Found" Switch */}
         <button
           onClick={() => setFilter({ onlyUncollected: !filter.onlyUncollected })}
-          className={`px-2.5 py-1.5 rounded-lg border text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+          className={`px-2 sm:px-2.5 py-1.5 rounded-lg border text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
             filter.onlyUncollected
               ? 'bg-emerald-950/80 text-emerald-300 border-emerald-500/80 shadow-[0_0_10px_rgba(16,185,129,0.3)]'
               : 'bg-[#11141e] text-zinc-400 border-[#212638] hover:text-zinc-200 hover:bg-[#181d2a]'
           }`}
           title={
             filter.onlyUncollected
-              ? 'Hide Found ВКЛЮЧЕНО: найденный лут, благодати и боссы полностью скрыты с карты'
-              : 'Hide Found ВЫКЛЮЧЕНО: показываются все маркеры (найденные отображаются полупрозрачными с галочкой)'
+              ? 'Hide Found ВКЛЮЧЕНО: найденный лут, благодати и боссы скрыты'
+              : 'Hide Found ВЫКЛЮЧЕНО: показываются все маркеры'
           }
         >
           <CheckCircle2
-            className={`w-3.5 h-3.5 ${filter.onlyUncollected ? 'text-emerald-400' : 'text-zinc-500'}`}
+            className={`w-3.5 h-3.5 shrink-0 ${filter.onlyUncollected ? 'text-emerald-400' : 'text-zinc-500'}`}
           />
-          <span className="hidden xl:inline">Скрыть найденное</span>
+          <span className="hidden 2xl:inline">Скрыть найденное</span>
           <span
-            className={`text-[10px] px-1 py-0.5 rounded font-bold ${
+            className={`text-[10px] px-1 py-0.5 rounded font-bold hidden sm:inline ${
               filter.onlyUncollected ? 'bg-emerald-500/30 text-emerald-300' : 'bg-zinc-800 text-zinc-500'
             }`}
           >
@@ -219,15 +211,15 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Route Drawer Toggle */}
         <button
           onClick={onToggleRouteDrawer}
-          className={`px-2.5 py-1.5 rounded-lg border text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer relative ${
+          className={`px-2 sm:px-2.5 py-1.5 rounded-lg border text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer relative ${
             isRouteDrawerOpen || (activeRoute && activeRoute.waypoints.length > 0)
               ? 'bg-blue-950/70 text-blue-300 border-blue-500/70 shadow-[0_0_8px_rgba(59,130,246,0.25)]'
               : 'bg-[#11141e] text-zinc-400 border-[#212638] hover:text-zinc-200 hover:bg-[#181d2a]'
           }`}
           title="Маршрутный лист и навигатор"
         >
-          <Compass className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline">Маршрут</span>
+          <Compass className="w-3.5 h-3.5 shrink-0" />
+          <span className="hidden lg:inline">Маршрут</span>
           {activeRoute && activeRoute.waypoints.length > 0 && (
             <span className="w-4 h-4 rounded-full bg-blue-500 text-white text-[10px] font-bold flex items-center justify-center">
               {activeRoute.waypoints.length}
@@ -241,7 +233,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => {
               centerOnPlayer();
             }}
-            className={`px-2.5 py-1.5 rounded-lg border text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+            className={`px-2 sm:px-2.5 py-1.5 rounded-lg border text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
               isFollowPlayer
                 ? 'bg-amber-950/80 text-amber-200 border-amber-500/80 shadow-[0_0_10px_rgba(245,158,11,0.35)] hover:bg-amber-900/90'
                 : 'bg-[#11141e] text-zinc-300 border-[#212638] hover:text-amber-200 hover:border-amber-500/50 hover:bg-[#181d2a]'
@@ -252,64 +244,62 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span className={`w-2 h-2 rounded-full ${isFollowPlayer ? 'bg-amber-400 animate-ping absolute' : ''}`} />
               <span className="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_6px_#f59e0b]" />
             </div>
-            <span className="hidden sm:inline">Игрок (Live)</span>
+            <span className="hidden lg:inline">Игрок</span>
           </button>
         )}
 
-        {/* Live-Sync / Save File Status */}
+        {/* Live-Sync / Save File Status Button */}
         {liveSyncState.enabled ? (
           <button
             onClick={onOpenSaveModal}
-            className="px-2.5 py-1.5 rounded-lg border text-xs font-semibold flex items-center gap-1.5 transition-all bg-emerald-950/80 text-emerald-300 border-emerald-500/80 shadow-[0_0_10px_rgba(16,185,129,0.3)] cursor-pointer hover:brightness-110"
-            title={`Live-отслеживание активно (${liveSyncState.fileName || 'ER0000.sl2'}). Нажмите для смены персонажа или папки.`}
+            className="px-2 sm:px-2.5 py-1.5 rounded-lg border text-xs font-semibold flex items-center gap-1.5 transition-all bg-emerald-950/80 text-emerald-300 border-emerald-500/80 shadow-[0_0_10px_rgba(16,185,129,0.3)] cursor-pointer hover:brightness-110 shrink-0"
+            title={`Live-отслеживание активно (${liveSyncState.fileName || 'ER0000.sl2'}). Нажмите для смены персонажа или файла.`}
           >
             <div className="relative flex items-center justify-center">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping absolute" />
               <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]" />
             </div>
-            <span className="hidden sm:inline">
-              Live: <strong className="text-white font-bold">{currentProfile.name}</strong> ({currentProfile.level} ур.)
+            <span className="hidden xl:inline text-emerald-400 font-bold">Live:</span>
+            <span className="font-mono text-zinc-100 text-[11px] truncate max-w-[85px] sm:max-w-[105px]">
+              {liveSyncState.fileName || 'ER0000.sl2'}
             </span>
-            <span className="sm:hidden">Live</span>
           </button>
         ) : (
           <button
             onClick={onOpenSaveModal}
-            className="px-2.5 py-1.5 rounded-lg bg-amber-950/40 text-[#f5d38a] border border-amber-500/50 hover:bg-amber-900/60 text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer shadow-[0_0_10px_rgba(200,170,110,0.2)] animate-pulse"
-            title="Выбрать папку с сохранением и персонажа для отслеживания"
+            className="px-2 sm:px-2.5 py-1.5 rounded-lg bg-amber-950/40 text-[#f5d38a] border border-amber-500/50 hover:bg-amber-900/60 text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer shadow-[0_0_10px_rgba(200,170,110,0.2)] animate-pulse shrink-0"
+            title="Выбрать файл сохранения (.sl2 / папку)"
           >
-            <FolderOpen className="w-3.5 h-3.5 text-[#f5d38a]" />
-            <span className="hidden sm:inline">Выбрать сохранение</span>
-            <span className="sm:hidden">Сохранение</span>
+            <FolderOpen className="w-3.5 h-3.5 text-[#f5d38a] shrink-0" />
+            <span className="hidden sm:inline">Выбрать сейв</span>
+            <span className="sm:hidden">Сейв</span>
           </button>
         )}
 
         {/* Randomizer Mode Toggle */}
         <button
           onClick={() => setIsRandomizer(!isRandomizer)}
-          className={`px-2.5 py-1.5 rounded-lg border text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+          className={`px-2 sm:px-2.5 py-1.5 rounded-lg border text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
             isRandomizer
               ? 'bg-purple-950/80 text-purple-200 border-purple-500/80 shadow-[0_0_10px_rgba(168,85,247,0.35)] hover:bg-purple-900/90'
               : 'bg-[#11141e] text-zinc-400 border-[#212638] hover:text-zinc-200 hover:bg-[#181d2a]'
           }`}
           title={
             isRandomizer
-              ? '🎲 Режим Рандомайзера ВКЛЮЧЕН: лут отмечается строго по физическим событиям мира (сундуки, боссы, трупы). Проверка ванильного инвентаря отключена, исключая ложные отметки (например, талисманов из снежных полей).'
-              : '🎲 Режим Рандомайзера ВЫКЛЮЧЕН: включена проверка уникальных предметов в инвентаре для ванильной игры.'
+              ? '🎲 Режим Рандомайзера ВКЛЮЧЕН: лут отмечается только по физическим событиям мира.'
+              : '🎲 Режим Рандомайзера ВЫКЛЮЧЕН.'
           }
         >
-          <Shuffle className={`w-3.5 h-3.5 ${isRandomizer ? 'text-purple-400' : 'text-zinc-500'}`} />
-          <span className="hidden xl:inline">Рандомайзер</span>
+          <Shuffle className={`w-3.5 h-3.5 shrink-0 ${isRandomizer ? 'text-purple-400' : 'text-zinc-500'}`} />
+          <span className="hidden 2xl:inline">Рандомайзер</span>
           <span
-            className={`text-[10px] px-1 py-0.5 rounded font-bold ${
+            className={`text-[10px] px-1 py-0.5 rounded font-bold hidden sm:inline ${
               isRandomizer ? 'bg-purple-500/30 text-purple-300' : 'bg-zinc-800 text-zinc-500'
             }`}
           >
             {isRandomizer ? 'ВКЛ' : 'ВЫКЛ'}
           </span>
         </button>
-
-
 
         {/* Marker Size Scale */}
         <div className="hidden 2xl:flex items-center bg-[#11141e] p-0.5 rounded-lg border border-[#212638] text-xs">
@@ -336,7 +326,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Stats Button */}
         <button
           onClick={onToggleStatsDrawer}
-          className={`p-2 rounded-lg border transition-all cursor-pointer ${
+          className={`p-2 rounded-lg border transition-all cursor-pointer shrink-0 ${
             isStatsDrawerOpen
               ? 'bg-amber-950/70 text-amber-300 border-amber-600/70 shadow-[0_0_8px_rgba(200,170,110,0.25)]'
               : 'bg-[#11141e] text-zinc-400 border-[#212638] hover:text-zinc-200 hover:bg-[#181d2a]'
@@ -346,86 +336,19 @@ export const Navbar: React.FC<NavbarProps> = ({
           <BarChart3 className="w-3.5 h-3.5" />
         </button>
 
-        {/* Profile Dropdown */}
-        <div className="relative">
-          <button
-            onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
-            className="px-2.5 py-1.5 rounded-lg bg-[#11141e] border border-[#212638] text-zinc-300 hover:text-white flex items-center gap-1.5 text-xs font-medium cursor-pointer"
-          >
-            <User className="w-3.5 h-3.5 text-[#c8aa6e]" />
-            <span className="max-w-[85px] sm:max-w-[110px] truncate">{currentProfile.name}</span>
-          </button>
-
-          {isProfileMenuOpen && (
-            <div className="absolute right-0 mt-2 w-56 bg-[#0e111a] border border-[#272c3d] rounded-xl shadow-2xl p-2 z-50 text-xs animate-in fade-in zoom-in-95 duration-100">
-              <div className="px-2 py-1.5 text-zinc-400 font-semibold border-b border-[#1f2434] mb-1">
-                Профили персонажей
-              </div>
-              <div className="max-h-48 overflow-y-auto flex flex-col gap-1">
-                {profiles.map((p) => (
-                  <div
-                    key={p.id}
-                    className={`flex items-center justify-between px-2 py-1.5 rounded-lg cursor-pointer transition-colors ${
-                      p.id === currentProfile.id
-                        ? 'bg-[#1a202e] text-[#f5d38a] font-semibold'
-                        : 'text-zinc-300 hover:bg-[#151924]'
-                    }`}
-                    onClick={() => {
-                      switchProfile(p.id);
-                      setIsProfileMenuOpen(false);
-                    }}
-                  >
-                    <span className="truncate">{p.name}</span>
-                    {profiles.length > 1 && p.id !== currentProfile.id && (
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          deleteProfile(p.id);
-                        }}
-                        className="text-zinc-500 hover:text-red-400 p-1 cursor-pointer"
-                        title="Удалить профиль"
-                      >
-                        <Trash2 className="w-3 h-3" />
-                      </button>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              {isCreatingProfile ? (
-                <div className="mt-2 pt-2 border-t border-[#1f2434] flex gap-1">
-                  <input
-                    type="text"
-                    value={newProfileName}
-                    onChange={(e) => setNewProfileName(e.target.value)}
-                    placeholder="Имя персонажа..."
-                    className="flex-1 bg-[#151924] border border-[#272c3d] rounded px-2 py-1 text-xs text-white outline-none focus:border-[#c8aa6e]"
-                    autoFocus
-                  />
-                  <button
-                    onClick={() => {
-                      if (newProfileName.trim()) {
-                        createProfile(newProfileName);
-                        setNewProfileName('');
-                        setIsCreatingProfile(false);
-                        setIsProfileMenuOpen(false);
-                      }
-                    }}
-                    className="bg-[#c8aa6e] text-black font-semibold px-2 rounded hover:bg-[#dfc388] cursor-pointer"
-                  >
-                    ✓
-                  </button>
-                </div>
-              ) : (
-                <button
-                  onClick={() => setIsCreatingProfile(true)}
-                  className="w-full mt-2 pt-2 border-t border-[#1f2434] text-zinc-400 hover:text-zinc-200 flex items-center gap-1.5 px-2 py-1 text-[11px] cursor-pointer"
-                >
-                  <Plus className="w-3.5 h-3.5" />
-                  <span>Создать новый профиль</span>
-                </button>
-              )}
-            </div>
+        {/* Character Info Label (Static Badge, not a button) */}
+        <div
+          className="px-2.5 py-1.5 rounded-lg bg-[#11141e]/90 border border-[#212638] text-zinc-300 flex items-center gap-1.5 text-xs font-medium cursor-default shrink-0 select-none shadow-sm"
+          title={`Персонаж: ${currentProfile.name}${currentProfile.level > 1 ? ` (${currentProfile.level} ур.)` : ''}`}
+        >
+          <User className="w-3.5 h-3.5 text-[#c8aa6e] shrink-0" />
+          <span className="max-w-[70px] sm:max-w-[95px] md:max-w-[125px] truncate font-semibold text-zinc-200">
+            {currentProfile.name}
+          </span>
+          {currentProfile.level > 1 && (
+            <span className="text-[10px] text-[#f5d38a]/80 font-mono hidden md:inline shrink-0">
+              {currentProfile.level} ур.
+            </span>
           )}
         </div>
       </div>

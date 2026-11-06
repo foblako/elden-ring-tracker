@@ -22,67 +22,94 @@ function computeDeclutteredPositions(
   map: L.Map
 ): Map<string, L.LatLng> {
   const result = new Map<string, L.LatLng>();
-  const zoom = map.getZoom();
+  const N = markers.length;
+  if (N === 0) return result;
 
-  // At ultra-high zoom (>= 7) or world overview (<= 2), preserve coordinates directly
-  if (zoom >= 7 || zoom <= 2) {
-    for (let i = 0; i < markers.length; i++) {
-      const m = markers[i];
-      result.set(m.id, map.unproject([m.px, m.py], 6));
-    }
-    return result;
-  }
+  // Only co-locate markers that share the exact physical spot in world coordinates (<= 2.6 units).
+  // Distant items in villages/camps remain at their authentic world coordinates without forming rings.
+  const WORLD_DIST_SQ = 2.6 * 2.6;
+  const visited = new Uint8Array(N);
 
-  // Fast O(N) spatial grid collision decluttering (26px screen-space buckets)
-  const cellSize = 26;
-  const grid = new Map<string, TrackerMarker[]>();
+  for (let i = 0; i < N; i++) {
+    if (visited[i]) continue;
+    visited[i] = 1;
+    const cluster = [markers[i]];
 
-  for (let i = 0; i < markers.length; i++) {
-    const m = markers[i];
-    const pt = map.latLngToLayerPoint(map.unproject([m.px, m.py], 6));
-    const cellKey = `${Math.floor(pt.x / cellSize)}:${Math.floor(pt.y / cellSize)}`;
-    let bucket = grid.get(cellKey);
-    if (!bucket) {
-      bucket = [];
-      grid.set(cellKey, bucket);
-    }
-    bucket.push(m);
-  }
-
-  grid.forEach((bucket) => {
-    if (bucket.length === 1) {
-      const m = bucket[0];
-      result.set(m.id, map.unproject([m.px, m.py], 6));
-    } else {
-      // Prioritize Bosses and Graces to anchor in center
-      bucket.sort((a, b) => {
-        const aScore = a.type.startsWith('boss') ? 3 : a.type === 'grace' ? 2 : 1;
-        const bScore = b.type.startsWith('boss') ? 3 : b.type === 'grace' ? 2 : 1;
-        return bScore - aScore;
-      });
-
-      const first = bucket[0];
-      const basePt = map.latLngToLayerPoint(map.unproject([first.px, first.py], 6));
-      const N = bucket.length;
-      const hasPriorityCenter = first.type.startsWith('boss') || first.type === 'grace';
-      const radius = Math.min(32, 22 + (N - 2) * 3);
-
-      for (let k = 0; k < N; k++) {
-        if (k === 0 && hasPriorityCenter) {
-          result.set(bucket[0].id, map.unproject([first.px, first.py], 6));
-        } else {
-          const countToFan = hasPriorityCenter ? N - 1 : N;
-          const index = hasPriorityCenter ? k - 1 : k;
-          const theta = (-Math.PI / 3) + (2 * Math.PI * index) / countToFan;
-          const offsetPt = L.point(
-            basePt.x + radius * Math.cos(theta),
-            basePt.y + radius * Math.sin(theta)
-          );
-          result.set(bucket[k].id, map.layerPointToLatLng(offsetPt));
-        }
+    for (let j = i + 1; j < N; j++) {
+      if (visited[j]) continue;
+      const a = markers[i];
+      const b = markers[j];
+      if (a.layer !== b.layer) continue;
+      const dx = a.px - b.px;
+      const dy = a.py - b.py;
+      if (dx * dx + dy * dy <= WORLD_DIST_SQ) {
+        visited[j] = 1;
+        cluster.push(b);
       }
     }
-  });
+
+    if (cluster.length === 1) {
+      result.set(cluster[0].id, map.unproject([cluster[0].px, cluster[0].py], 6));
+      continue;
+    }
+
+    // Sort to prioritize Bosses, then Graces, then Key Items, then others
+    cluster.sort((a, b) => {
+      const getScore = (m: TrackerMarker) => {
+        if (m.type.startsWith('boss') || m.category === 'bosses') return 4;
+        if (m.type === 'grace' || m.category === 'graces') return 3;
+        if (m.category === 'keyItems' || m.category === 'weapons') return 2;
+        return 1;
+      };
+      return getScore(b) - getScore(a);
+    });
+
+    const count = cluster.length;
+    const first = cluster[0];
+    const firstLatLng = map.unproject([first.px, first.py], 6);
+    const firstPt = map.latLngToLayerPoint(firstLatLng);
+
+    const hasPriorityCenter =
+      first.type.startsWith('boss') ||
+      first.category === 'bosses' ||
+      first.type === 'grace' ||
+      first.category === 'graces';
+
+    if (hasPriorityCenter) {
+      // Landmark (Boss or Grace) stays fixed at exact authentic position
+      result.set(first.id, firstLatLng);
+      const remainingCount = count - 1;
+      const offsetRadius = 22;
+      for (let k = 1; k < count; k++) {
+        const idx = k - 1;
+        const theta = (-Math.PI / 2) + (2 * Math.PI * idx) / remainingCount;
+        const offsetPt = L.point(
+          firstPt.x + offsetRadius * Math.cos(theta),
+          firstPt.y + offsetRadius * Math.sin(theta)
+        );
+        result.set(cluster[k].id, map.layerPointToLatLng(offsetPt));
+      }
+    } else if (count === 2) {
+      // 2 items at identical spot (e.g. 2 loot drops on same corpse/chest):
+      // Cleanly separate side-by-side horizontally (16px left, 16px right)
+      const r = 16;
+      const pt0 = L.point(firstPt.x - r, firstPt.y);
+      const pt1 = L.point(firstPt.x + r, firstPt.y);
+      result.set(cluster[0].id, map.layerPointToLatLng(pt0));
+      result.set(cluster[1].id, map.layerPointToLatLng(pt1));
+    } else {
+      // 3+ items: distribute in a neat tight circle (radius 18px)
+      const radius = 18;
+      for (let k = 0; k < count; k++) {
+        const theta = (-Math.PI / 2) + (2 * Math.PI * k) / count;
+        const offsetPt = L.point(
+          firstPt.x + radius * Math.cos(theta),
+          firstPt.y + radius * Math.sin(theta)
+        );
+        result.set(cluster[k].id, map.layerPointToLatLng(offsetPt));
+      }
+    }
+  }
 
   return result;
 }
@@ -447,21 +474,30 @@ export const MapViewer: React.FC = () => {
         // Tier 2: Continental / Regional view (3.2 <= zoom < 4.4)
         // Graces, ALL Bosses, Dungeons, Core Flask Upgrades (Seeds, Tears, Scadu, Revered), Map Steles, Merchants
         else if (zoom < 4.4) {
+          const isScarab = Boolean(
+            (m.dropSource && m.dropSource.toLowerCase().includes('scarab')) ||
+            (m.dropSourceRu && m.dropSourceRu.toLowerCase().includes('скарабей'))
+          );
           const isRegional =
             cat === 'graces' || type === 'grace' ||
             cat === 'bosses' || type.startsWith('boss') ||
             cat === 'dungeons' || type === 'spiritspring' ||
             cat === 'merchants' ||
             (cat === 'keyItems' && (name.includes('Map:') || name.includes('Great Rune') || name.includes('Medallion'))) ||
-            isFlaskUpgrade;
+            isFlaskUpgrade ||
+            (isScarab && zoom >= 4.0);
           if (!isRegional) continue;
         }
         // Tier 3: Zone view (4.4 <= zoom < 5.4)
         // Add Weapons, Armor, Talismans, Spells, Ashes of War, Spirit Ashes, Key Items
         // Exclude regular Smithing Stones, Gloveworts, Golden Runes, Materials, Consumables
         else if (zoom < 5.4) {
+          const isScarab = Boolean(
+            (m.dropSource && m.dropSource.toLowerCase().includes('scarab')) ||
+            (m.dropSourceRu && m.dropSourceRu.toLowerCase().includes('скарабей'))
+          );
           if (cat === 'materials' || cat === 'consumables' || cat === 'other') continue;
-          if (cat === 'upgrades' && !isFlaskUpgrade && !name.includes('Ancient Dragon')) continue;
+          if (cat === 'upgrades' && !isFlaskUpgrade && !name.includes('Ancient Dragon') && !isScarab) continue;
         }
         // Tier 4: Detail view (zoom >= 5.4)
         // Everything visible at full fidelity!
@@ -522,6 +558,13 @@ export const MapViewer: React.FC = () => {
         const isGrace = m.type === 'grace' || m.category === 'graces';
         const zIndexOffset = isBoss ? 200 : isGrace ? 150 : (isWishlisted ? 100 : 0);
         const marker = L.marker(latLng, { icon, zIndexOffset });
+
+        marker.on('mouseover', () => {
+          marker.setZIndexOffset(zIndexOffset + 5000);
+        });
+        marker.on('mouseout', () => {
+          marker.setZIndexOffset(zIndexOffset);
+        });
 
         marker.bindPopup(() => createPopupContent(m, isCollected, isWishlisted), {
           minWidth: 260,

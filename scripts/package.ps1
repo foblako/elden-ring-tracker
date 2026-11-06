@@ -6,6 +6,10 @@ Write-Host "==========================================" -ForegroundColor Cyan
 $baseDir = Split-Path -Parent $PSScriptRoot
 Set-Location $baseDir
 
+$pkg = Get-Content "$baseDir\package.json" -Raw | ConvertFrom-Json
+$version = $pkg.version
+Write-Host "Packaging version: v$version" -ForegroundColor Cyan
+
 # 1. Build Client UI
 Write-Host "[1/5] Building React client..." -ForegroundColor Yellow
 npm run build
@@ -25,7 +29,7 @@ $csc = "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
 # 4. Assemble release folder
 Write-Host "[4/5] Assembling release package..." -ForegroundColor Yellow
 $relRoot = "$baseDir\release"
-$relDir = "$relRoot\EldenRingTracker-v1.0.0-Windows"
+$relDir = "$relRoot\EldenRingTracker-v$version-Windows"
 
 if (Test-Path $relDir) { Remove-Item -Recurse -Force $relDir }
 New-Item -ItemType Directory -Path $relDir -Force | Out-Null
@@ -37,9 +41,33 @@ Copy-Item "C:\Program Files\nodejs\node.exe" "$relDir\"
 Copy-Item -Recurse "dist" "$relDir\"
 Copy-Item "tools\er_tracker.exe" "$relDir\tools\"
 
+# 4b. Update Neighboring Desktop Package
+$desktopDirs = @(
+    "C:\Users\foblako\Desktop\EldenRingTracker-v$version-Windows",
+    "C:\Users\foblako\Desktop\EldenRingTracker-v1.0.0-Windows"
+) | Select-Object -Unique
+
+foreach ($desktopDir in $desktopDirs) {
+    if (Test-Path $desktopDir) {
+        Write-Host "Updating desktop folder ($desktopDir)..." -ForegroundColor Yellow
+        try {
+            Copy-Item "launcher\EldenRingTracker.exe" "$desktopDir\" -Force -ErrorAction SilentlyContinue
+            Copy-Item "server\server.bundle.cjs" "$desktopDir\" -Force -ErrorAction SilentlyContinue
+            Copy-Item "C:\Program Files\nodejs\node.exe" "$desktopDir\" -Force -ErrorAction SilentlyContinue
+            if (Test-Path "$desktopDir\dist") { Remove-Item -Recurse -Force "$desktopDir\dist" -ErrorAction SilentlyContinue }
+            Copy-Item -Recurse "dist" "$desktopDir\" -Force -ErrorAction SilentlyContinue
+            if (-not (Test-Path "$desktopDir\tools")) { New-Item -ItemType Directory -Path "$desktopDir\tools" -Force | Out-Null }
+            Copy-Item "tools\er_tracker.exe" "$desktopDir\tools\" -Force -ErrorAction SilentlyContinue
+            Write-Host "Desktop package updated successfully." -ForegroundColor Green
+        } catch {
+            Write-Host "Note: Desktop folder update skipped for locked files (app currently running)." -ForegroundColor DarkGray
+        }
+    }
+}
+
 # 5. Create ZIP Archive
 Write-Host "[5/5] Compressing ZIP archive..." -ForegroundColor Yellow
-$zipPath = "$relRoot\EldenRingTracker-v1.0.0-Windows.zip"
+$zipPath = "$relRoot\EldenRingTracker-v$version-Windows.zip"
 if (Test-Path $zipPath) { Remove-Item -Force $zipPath }
 Compress-Archive -Path $relDir -DestinationPath $zipPath -Force
 

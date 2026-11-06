@@ -9955,8 +9955,8 @@
     "layer": "base-game-underground",
     "name": "Crucible Knight Siluria",
     "nameRu": "Рыцарь Горнила Силурия",
-    "px": 3947.1,
-    "py": 3236.8,
+    "px": 3975.1,
+    "py": 3245.8,
     "flagId": 12030390,
     "placeName": "",
     "altFlags": [
@@ -9986,8 +9986,8 @@
     "layer": "base-game-underground",
     "name": "Fia's Champions",
     "nameRu": "Герои Фии",
-    "px": 4461.2,
-    "py": 3119.5,
+    "px": 4489.2,
+    "py": 3128.5,
     "flagId": 12030800,
     "placeName": "",
     "description": "Drops: Fia’s Mist",
@@ -10000,8 +10000,8 @@
     "layer": "base-game-underground",
     "name": "Erdtree Avatar",
     "nameRu": "Воплощение Древа Эрд",
-    "px": 4643.1,
-    "py": 3594.2,
+    "px": 4671.1,
+    "py": 3603.2,
     "flagId": 12030391,
     "placeName": "",
     "altFlags": [
@@ -10048,8 +10048,8 @@
     "layer": "base-game-underground",
     "name": "Lichdragon Fortissax",
     "nameRu": "Дракон-лич Фортисакс",
-    "px": 4382.6,
-    "py": 3189.2,
+    "px": 4410.6,
+    "py": 3198.2,
     "flagId": 12030850,
     "placeName": "",
     "description": "If you talk through all of fia's dialog you will be teleported into the boss fight to get all the dialog you may need to rest at a grace a couple times.\n\n**Loot:**\n- [Remembrance of the Lichdragon](https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=177657)",
@@ -10339,8 +10339,8 @@
     "layer": "base-game-underground",
     "name": "Prince of Death's Throne",
     "nameRu": "Трон принца Смерти",
-    "px": 4451.9,
-    "py": 3118.2,
+    "px": 4479.9,
+    "py": 3127.2,
     "flagId": 71230,
     "placeName": ""
   },
@@ -10351,8 +10351,8 @@
     "layer": "base-game-underground",
     "name": "Root-Facing Cliffs",
     "nameRu": "Скалы со стороны корней",
-    "px": 4646.4,
-    "py": 3433.7,
+    "px": 4674.4,
+    "py": 3442.7,
     "flagId": 71231,
     "placeName": "",
     "description": "Root-Facing Cliffs martyr effigy",
@@ -10366,8 +10366,8 @@
     "layer": "base-game-underground",
     "name": "Great Waterfall Crest",
     "nameRu": "Вершина великого водопада",
-    "px": 4667.5,
-    "py": 3540.9,
+    "px": 4695.5,
+    "py": 3549.9,
     "flagId": 71232,
     "placeName": "",
     "mediaUrl": "https://media.mapgenie.io/storage/media/bc5a5fc0-45ea-4d06-a3ad-194715f9ed1a.png",
@@ -10380,8 +10380,8 @@
     "layer": "base-game-underground",
     "name": "Deeproot Depths",
     "nameRu": "Низовье Глубокого Корня",
-    "px": 4233,
-    "py": 3526,
+    "px": 4261,
+    "py": 3535,
     "flagId": 71233,
     "placeName": "",
     "description": "Northeast of grace",
@@ -10395,8 +10395,8 @@
     "layer": "base-game-underground",
     "name": "The Nameless Eternal City",
     "nameRu": "Безымянный Вечный город",
-    "px": 4141.7,
-    "py": 3325.9,
+    "px": 4169.7,
+    "py": 3334.9,
     "flagId": 71234,
     "placeName": "",
     "mediaUrl": "https://media.mapgenie.io/storage/media/df0f79ed-e251-4614-a688-944db6cd43af.png",
@@ -10409,8 +10409,8 @@
     "layer": "base-game-underground",
     "name": "Across the Roots",
     "nameRu": "Вдоль корней",
-    "px": 4362.1,
-    "py": 3267.2,
+    "px": 4390.1,
+    "py": 3276.2,
     "flagId": 71235,
     "placeName": "",
     "description": "**Location:** Next to the site of grace, outside the arena for the Fia's Champions and Lichdragon Fortissax boss fights.",
@@ -15016,8 +15016,8 @@
     "layer": "base-game-underground",
     "name": "Mending Rune of the Death-Prince",
     "nameRu": "Целая руна принца Смерти",
-    "px": 4483.2,
-    "py": 3105.5,
+    "px": 4511.2,
+    "py": 3114.5,
     "flagId": 9502,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24549,8 +24549,8 @@
     "layer": "base-game-underground",
     "name": "Map: Deeproot Depths",
     "nameRu": "Карта: низовье Глубокого Корня",
-    "px": 4282.8,
-    "py": 3347.5,
+    "px": 4310.8,
+    "py": 3356.5,
     "flagId": 62064,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24576,8 +24576,8 @@
     "layer": "base-game-underground",
     "name": "Stonesword Key",
     "nameRu": "Мечевидный ключ",
-    "px": 4017.9,
-    "py": 3270.7,
+    "px": 4045.9,
+    "py": 3279.7,
     "flagId": 12037010,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24596,8 +24596,8 @@
     "layer": "base-game-underground",
     "name": "Formic Rock",
     "nameRu": "Муравьиный камень",
-    "px": 4703.3,
-    "py": 3514.4,
+    "px": 4731.3,
+    "py": 3523.4,
     "flagId": 12037020,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24616,8 +24616,8 @@
     "layer": "base-game-underground",
     "name": "Golden Rune [5]",
     "nameRu": "Золотая руна [5]",
-    "px": 4662.4,
-    "py": 3576.8,
+    "px": 4690.4,
+    "py": 3585.8,
     "flagId": 12037030,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24636,8 +24636,8 @@
     "layer": "base-game-underground",
     "name": "Golden Rune [8]",
     "nameRu": "Золотая руна [8]",
-    "px": 4655.9,
-    "py": 3554.3,
+    "px": 4683.9,
+    "py": 3563.3,
     "flagId": 12037040,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24656,8 +24656,8 @@
     "layer": "base-game-underground",
     "name": "Golden Arrow",
     "nameRu": "Золотая стрела",
-    "px": 4573,
-    "py": 3558.6,
+    "px": 4601,
+    "py": 3567.6,
     "flagId": 12037050,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24676,8 +24676,8 @@
     "layer": "base-game-underground",
     "name": "Smithing Stone [6]",
     "nameRu": "Кузнечный камень [6]",
-    "px": 4612.5,
-    "py": 3538.8,
+    "px": 4640.5,
+    "py": 3547.8,
     "flagId": 12037060,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24696,8 +24696,8 @@
     "layer": "base-game-underground",
     "name": "Holy Grease",
     "nameRu": "Святая смазка",
-    "px": 4474.9,
-    "py": 3521.6,
+    "px": 4502.9,
+    "py": 3530.6,
     "flagId": 12037070,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24716,8 +24716,8 @@
     "layer": "base-game-underground",
     "name": "Elden Stars",
     "nameRu": "Звёзды Элдена",
-    "px": 4468.6,
-    "py": 3468.9,
+    "px": 4496.6,
+    "py": 3477.9,
     "flagId": 12037080,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24736,8 +24736,8 @@
     "layer": "base-game-underground",
     "name": "Smithing Stone [4]",
     "nameRu": "Кузнечный камень [4]",
-    "px": 4374,
-    "py": 3477.7,
+    "px": 4402,
+    "py": 3486.7,
     "flagId": 12037090,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24756,8 +24756,8 @@
     "layer": "base-game-underground",
     "name": "Golden Rune [5]",
     "nameRu": "Золотая руна [5]",
-    "px": 4399,
-    "py": 3612.7,
+    "px": 4427,
+    "py": 3621.7,
     "flagId": 12037100,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24776,8 +24776,8 @@
     "layer": "base-game-underground",
     "name": "Golden Rune [6]",
     "nameRu": "Золотая руна [6]",
-    "px": 4332.9,
-    "py": 3549.9,
+    "px": 4360.9,
+    "py": 3558.9,
     "flagId": 12037110,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24796,8 +24796,8 @@
     "layer": "base-game-underground",
     "name": "Warming Stone",
     "nameRu": "Согревающий камень",
-    "px": 4342.3,
-    "py": 3552,
+    "px": 4370.3,
+    "py": 3561,
     "flagId": 12037120,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24816,8 +24816,8 @@
     "layer": "base-game-underground",
     "name": "Smithing Stone [4]",
     "nameRu": "Кузнечный камень [4]",
-    "px": 4336.1,
-    "py": 3562,
+    "px": 4364.1,
+    "py": 3571,
     "flagId": 12037130,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24836,8 +24836,8 @@
     "layer": "base-game-underground",
     "name": "Ash of War: Vacuum Slice",
     "nameRu": "Пепел Войны: Опустошающий порез",
-    "px": 4336.7,
-    "py": 3281.4,
+    "px": 4364.7,
+    "py": 3290.4,
     "flagId": 12037140,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24856,8 +24856,8 @@
     "layer": "base-game-underground",
     "name": "Dragonwound Grease",
     "nameRu": "Смазка из драконьей раны",
-    "px": 4291.5,
-    "py": 3390.5,
+    "px": 4319.5,
+    "py": 3399.5,
     "flagId": 12037150,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24876,8 +24876,8 @@
     "layer": "base-game-underground",
     "name": "Hefty Beast Bone",
     "nameRu": "Крупная звериная кость",
-    "px": 4269.1,
-    "py": 3362.1,
+    "px": 4297.1,
+    "py": 3371.1,
     "flagId": 12037160,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24896,8 +24896,8 @@
     "layer": "base-game-underground",
     "name": "Golden Rune [1]",
     "nameRu": "Золотая руна [1]",
-    "px": 4228.4,
-    "py": 3327.4,
+    "px": 4256.4,
+    "py": 3336.4,
     "flagId": 12037170,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24916,8 +24916,8 @@
     "layer": "base-game-underground",
     "name": "Prince of Death's Staff",
     "nameRu": "Посох принца Смерти",
-    "px": 4228,
-    "py": 3247,
+    "px": 4256,
+    "py": 3256,
     "flagId": 12037180,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24937,8 +24937,8 @@
     "layer": "base-game-underground",
     "name": "Smithing Stone [6]",
     "nameRu": "Кузнечный камень [6]",
-    "px": 4191.7,
-    "py": 3268,
+    "px": 4219.7,
+    "py": 3277,
     "flagId": 12037190,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24957,8 +24957,8 @@
     "layer": "base-game-underground",
     "name": "Golden Rune [5]",
     "nameRu": "Золотая руна [5]",
-    "px": 4306.4,
-    "py": 3296,
+    "px": 4334.4,
+    "py": 3305,
     "flagId": 12037200,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24977,8 +24977,8 @@
     "layer": "base-game-underground",
     "name": "Golden Rune [8]",
     "nameRu": "Золотая руна [8]",
-    "px": 4358.9,
-    "py": 3306.4,
+    "px": 4386.9,
+    "py": 3315.4,
     "flagId": 12037210,
     "dropSource": null,
     "dropSourceRu": null,
@@ -24997,8 +24997,8 @@
     "layer": "base-game-underground",
     "name": "Nascent Butterfly",
     "nameRu": "Личинка бабочки",
-    "px": 4321.5,
-    "py": 3287.8,
+    "px": 4349.5,
+    "py": 3296.8,
     "flagId": 12037220,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25017,8 +25017,8 @@
     "layer": "base-game-underground",
     "name": "Somber Smithing Stone [7]",
     "nameRu": "Кузнечный камень мрака [7]",
-    "px": 4007.9,
-    "py": 3256.7,
+    "px": 4035.9,
+    "py": 3265.7,
     "flagId": 12037230,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25037,8 +25037,8 @@
     "layer": "base-game-underground",
     "name": "Somber Smithing Stone [7]",
     "nameRu": "Кузнечный камень мрака [7]",
-    "px": 4090.2,
-    "py": 3155.1,
+    "px": 4118.2,
+    "py": 3164.1,
     "flagId": 12037240,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25057,8 +25057,8 @@
     "layer": "base-game-underground",
     "name": "Somber Smithing Stone [7]",
     "nameRu": "Кузнечный камень мрака [7]",
-    "px": 4114.4,
-    "py": 3183.3,
+    "px": 4142.4,
+    "py": 3192.3,
     "flagId": 12037250,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25077,8 +25077,8 @@
     "layer": "base-game-underground",
     "name": "Fan Daggers",
     "nameRu": "Веерные кинжалы",
-    "px": 4204.3,
-    "py": 3235.6,
+    "px": 4232.3,
+    "py": 3244.6,
     "flagId": 12037260,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25097,8 +25097,8 @@
     "layer": "base-game-underground",
     "name": "Somber Smithing Stone [6]",
     "nameRu": "Кузнечный камень мрака [6]",
-    "px": 4164.2,
-    "py": 3019.2,
+    "px": 4192.2,
+    "py": 3028.2,
     "flagId": 12037270,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25117,8 +25117,8 @@
     "layer": "base-game-underground",
     "name": "Golden Rune [8]",
     "nameRu": "Золотая руна [8]",
-    "px": 4082.3,
-    "py": 3125.9,
+    "px": 4110.3,
+    "py": 3134.9,
     "flagId": 12037280,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25137,8 +25137,8 @@
     "layer": "base-game-underground",
     "name": "Golden Rune [8]",
     "nameRu": "Золотая руна [8]",
-    "px": 4022.2,
-    "py": 3215.9,
+    "px": 4050.2,
+    "py": 3224.9,
     "flagId": 12037290,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25157,8 +25157,8 @@
     "layer": "base-game-underground",
     "name": "Crucible Tree Helm + Crucible Tree Armor + Crucible Gauntlets + Crucible Greaves",
     "nameRu": "Шлем древа Горнила + Доспех древа Горнила + Перчатки Горнила + Поножи Горнила",
-    "px": 3911.3,
-    "py": 3231.3,
+    "px": 3939.3,
+    "py": 3240.3,
     "flagId": 12037300,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25180,8 +25180,8 @@
     "layer": "base-game-underground",
     "name": "Smithing Stone [6]",
     "nameRu": "Кузнечный камень [6]",
-    "px": 4639.5,
-    "py": 3442,
+    "px": 4667.5,
+    "py": 3451,
     "flagId": 12037310,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25200,8 +25200,8 @@
     "layer": "base-game-underground",
     "name": "Golden Rune [8]",
     "nameRu": "Золотая руна [8]",
-    "px": 4689.8,
-    "py": 3502.3,
+    "px": 4717.8,
+    "py": 3511.3,
     "flagId": 12037320,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25220,8 +25220,8 @@
     "layer": "base-game-underground",
     "name": "Somber Smithing Stone [7]",
     "nameRu": "Кузнечный камень мрака [7]",
-    "px": 4384.7,
-    "py": 3365.9,
+    "px": 4412.7,
+    "py": 3374.9,
     "flagId": 12037330,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25240,8 +25240,8 @@
     "layer": "base-game-underground",
     "name": "Arteria Leaf",
     "nameRu": "Пульсирующий лист",
-    "px": 4267.8,
-    "py": 3215.7,
+    "px": 4295.8,
+    "py": 3224.7,
     "flagId": 12037340,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25260,8 +25260,8 @@
     "layer": "base-game-underground",
     "name": "Smithing Stone [7]",
     "nameRu": "Кузнечный камень [7]",
-    "px": 4270.6,
-    "py": 3209,
+    "px": 4298.6,
+    "py": 3218,
     "flagId": 12037350,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25280,8 +25280,8 @@
     "layer": "base-game-underground",
     "name": "Lightning Greatbolt",
     "nameRu": "Громовой большой болт",
-    "px": 4258.4,
-    "py": 3146.4,
+    "px": 4286.4,
+    "py": 3155.4,
     "flagId": 12037360,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25300,8 +25300,8 @@
     "layer": "base-game-underground",
     "name": "Golden Rune [8]",
     "nameRu": "Золотая руна [8]",
-    "px": 4128.1,
-    "py": 3173.2,
+    "px": 4156.1,
+    "py": 3182.2,
     "flagId": 12037370,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25320,8 +25320,8 @@
     "layer": "base-game-underground",
     "name": "Smithing Stone [6]",
     "nameRu": "Кузнечный камень [6]",
-    "px": 4119,
-    "py": 3181.8,
+    "px": 4147,
+    "py": 3190.8,
     "flagId": 12037380,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25340,8 +25340,8 @@
     "layer": "base-game-underground",
     "name": "Golden Rune [8]",
     "nameRu": "Золотая руна [8]",
-    "px": 4008.8,
-    "py": 3142.4,
+    "px": 4036.8,
+    "py": 3151.4,
     "flagId": 12037390,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25360,8 +25360,8 @@
     "layer": "base-game-underground",
     "name": "Clarifying Boluses",
     "nameRu": "Проясняющие пилюли",
-    "px": 4068.1,
-    "py": 3336,
+    "px": 4096.1,
+    "py": 3345,
     "flagId": 12037400,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25378,8 +25378,8 @@
     "layer": "base-game-underground",
     "name": "Smithing Stone [4]",
     "nameRu": "Кузнечный камень [4]",
-    "px": 4068.1,
-    "py": 3337.3,
+    "px": 4096.1,
+    "py": 3346.3,
     "flagId": 12037410,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25398,8 +25398,8 @@
     "layer": "base-game-underground",
     "name": "Human Bone Shard",
     "nameRu": "Осколок человеческой кости",
-    "px": 4073.1,
-    "py": 3339.3,
+    "px": 4101.1,
+    "py": 3348.3,
     "flagId": 12037420,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25416,8 +25416,8 @@
     "layer": "base-game-underground",
     "name": "Golden Rune [8]",
     "nameRu": "Золотая руна [8]",
-    "px": 4062,
-    "py": 3326,
+    "px": 4090,
+    "py": 3335,
     "flagId": 12037430,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25436,8 +25436,8 @@
     "layer": "base-game-underground",
     "name": "Golden Rune [9]",
     "nameRu": "Золотая руна [9]",
-    "px": 4061.3,
-    "py": 3331,
+    "px": 4089.3,
+    "py": 3340,
     "flagId": 12037440,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25456,8 +25456,8 @@
     "layer": "base-game-underground",
     "name": "Smithing Stone [4]",
     "nameRu": "Кузнечный камень [4]",
-    "px": 4044.7,
-    "py": 3331.8,
+    "px": 4072.7,
+    "py": 3340.8,
     "flagId": 12037450,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25476,8 +25476,8 @@
     "layer": "base-game-underground",
     "name": "Nascent Butterfly",
     "nameRu": "Личинка бабочки",
-    "px": 4048.9,
-    "py": 3325.8,
+    "px": 4076.9,
+    "py": 3334.8,
     "flagId": 12037460,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25494,8 +25494,8 @@
     "layer": "base-game-underground",
     "name": "Golden Rune [8]",
     "nameRu": "Золотая руна [8]",
-    "px": 4054.9,
-    "py": 3325.6,
+    "px": 4082.9,
+    "py": 3334.6,
     "flagId": 12037470,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25514,8 +25514,8 @@
     "layer": "base-game-underground",
     "name": "Smithing Stone [5]",
     "nameRu": "Кузнечный камень [5]",
-    "px": 4092.9,
-    "py": 3061.1,
+    "px": 4120.9,
+    "py": 3070.1,
     "flagId": 12037480,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25534,8 +25534,8 @@
     "layer": "base-game-underground",
     "name": "Smithing Stone [5]",
     "nameRu": "Кузнечный камень [5]",
-    "px": 4169.7,
-    "py": 3272.3,
+    "px": 4197.7,
+    "py": 3281.3,
     "flagId": 12037490,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25554,8 +25554,8 @@
     "layer": "base-game-underground",
     "name": "Smithing Stone [6]",
     "nameRu": "Кузнечный камень [6]",
-    "px": 4317,
-    "py": 3377.2,
+    "px": 4345,
+    "py": 3386.2,
     "flagId": 12037500,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25574,8 +25574,8 @@
     "layer": "base-game-underground",
     "name": "Rune Arc",
     "nameRu": "Руническая дуга",
-    "px": 4322.4,
-    "py": 3383.4,
+    "px": 4350.4,
+    "py": 3392.4,
     "flagId": 12037510,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25594,8 +25594,8 @@
     "layer": "base-game-underground",
     "name": "Mausoleum Soldier Ashes",
     "nameRu": "Прах солдат мавзолея",
-    "px": 4174.3,
-    "py": 2982.5,
+    "px": 4202.3,
+    "py": 2991.5,
     "flagId": 12037520,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25614,8 +25614,8 @@
     "layer": "base-game-underground",
     "name": "Somber Smithing Stone [7]",
     "nameRu": "Кузнечный камень мрака [7]",
-    "px": 4195.6,
-    "py": 3231.6,
+    "px": 4223.6,
+    "py": 3240.6,
     "flagId": 12037530,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25634,8 +25634,8 @@
     "layer": "base-game-underground",
     "name": "Golden Rune [8]",
     "nameRu": "Золотая руна [8]",
-    "px": 4201.5,
-    "py": 3231.8,
+    "px": 4229.5,
+    "py": 3240.8,
     "flagId": 12037540,
     "dropSource": null,
     "dropSourceRu": null,
@@ -25654,8 +25654,8 @@
     "layer": "base-game-underground",
     "name": "Somber Smithing Stone [6]",
     "nameRu": "Кузнечный камень мрака [6]",
-    "px": 4533.3,
-    "py": 3387.7,
+    "px": 4561.3,
+    "py": 3396.7,
     "flagId": 12037550,
     "dropSource": null,
     "dropSourceRu": null,
@@ -34102,7 +34102,8 @@
       20007001,
       20007002,
       18007071,
-      18007072
+      18007072,
+      67480
     ],
     "description": "**Location:** [Stranded Graveyard](https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=163931) - beside an archway near the [Stranded Graveyard Site of Grace](https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=163933) .",
     "mediaUrl": "https://media.mapgenie.io/storage/media/b9bf48e2-da6a-4199-bdd4-880d74f74134.png",
@@ -36079,8 +36080,8 @@
     "px": 5318,
     "py": 4444.5,
     "flagId": 21007010,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10106"
@@ -38260,8 +38261,8 @@
     "px": 5248,
     "py": 4387.7,
     "flagId": 21027200,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10106"
@@ -47256,8 +47257,8 @@
     "px": 2604.9,
     "py": 3637.5,
     "flagId": 39207050,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 29,
     "itemKeys": [
       "g:10103"
@@ -49476,8 +49477,8 @@
     "px": 5419.9,
     "py": 5355.2,
     "flagId": 42027040,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10167"
@@ -49555,8 +49556,8 @@
     "px": 5408.9,
     "py": 5337.4,
     "flagId": 42027080,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10107"
@@ -52310,9 +52311,16 @@
     "itemKeys": [
       "g:10010"
     ],
-    "description": "**Location:** At the foot of a golden tree, at the end of the broken bridge just outside the lift up to the Academy of Raya Lucaria.",
+    "description": "**Location:** At the foot of a golden tree, at the end of the broken bridge leading northeast from the Main Academy Gate (past the blue seal and wolves).\n\n**Местонахождение:** У подножия золотого деревца в самом конце разрушенного моста к северо-востоку от Главных ворот академии (пройдите за синюю печать в сторону тракта Беллума, мимо волков до обрыва).",
     "mediaUrl": "https://media.mapgenie.io/storage/media/0fd9f10e-8526-426a-a671-8d30d9f89eac.png",
-    "mapGenieId": 165657
+    "mapGenieId": 165657,
+    "altFlags": [
+      1035468600,
+      1035468500,
+      1035468510,
+      1035468540
+    ],
+    "placeName": "Главные ворота академии (разрушенный мост)"
   },
   {
     "id": "item-1833",
@@ -53061,7 +53069,13 @@
     ],
     "description": "Near a golden tree after going down the steps from the Manor Upper Level Site of Grace.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/d2e9c563-1bce-4bbf-8b74-f9816062c85a.jpg",
-    "mapGenieId": 166669
+    "mapGenieId": 166669,
+    "altFlags": [
+      1035508600,
+      1035508500,
+      1035508510,
+      1035508540
+    ]
   },
   {
     "id": "item-1869",
@@ -53533,34 +53547,6 @@
     "mapGenieId": 167886
   },
   {
-    "id": "item-1891",
-    "type": "item",
-    "category": "upgrades",
-    "subCategory": "crystalTears",
-    "layer": "base-game",
-    "name": "Dexterity-knot Crystal Tear",
-    "nameRu": "Кристальная слеза ловкости",
-    "px": 2170.4,
-    "py": 5659.3,
-    "flagId": 65220,
-    "dropSource": null,
-    "dropSourceRu": null,
-    "rarity": 1,
-    "itemKeys": [
-      "g:11022"
-    ],
-    "altFlags": [
-      1036427000,
-      1036437001,
-      1036437002,
-      1036417021,
-      1036417022
-    ],
-    "description": "**Location:** Found inside a stone receptacle on top of a craggy hill.  \n\n**Effect granted:** Raises the player's Dexterity by 10.",
-    "mediaUrl": "https://media.mapgenie.io/storage/media/e3b9a644-d694-443f-a468-56c56f0d6014.jpeg",
-    "mapGenieId": 166241
-  },
-  {
     "id": "item-1892",
     "type": "item",
     "category": "upgrades",
@@ -53801,7 +53787,13 @@
     ],
     "description": "**Location:** At the foot of the golden tree in the middle of Liurna's sunken town below Raya Lucaria.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/4c842e0c-df2f-4834-9ed0-58c691e508e4.png",
-    "mapGenieId": 165193
+    "mapGenieId": 165193,
+    "altFlags": [
+      1036448600,
+      1036448500,
+      1036448510,
+      1036448540
+    ]
   },
   {
     "id": "item-1903",
@@ -54381,7 +54373,13 @@
     ],
     "description": "At the foot of a Golden Tree in the far north of the mountain past a summit with a Fallingstar Beast, on the road down towards the Volcano Manor.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/64c19cab-33d9-497e-a9be-689339d25ad1.png",
-    "mapGenieId": 166526
+    "mapGenieId": 166526,
+    "altFlags": [
+      1036548600,
+      1036548500,
+      1036548510,
+      1036548540
+    ]
   },
   {
     "id": "item-1930",
@@ -55150,7 +55148,13 @@
     ],
     "description": "**Location:** At the foot of a Golden Tree deep in the northern ravine of Liurnia, surrounded by giant Land Squirts.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/02aa794b-9938-46af-ab04-ac7667f9d747.jpg",
-    "mapGenieId": 166496
+    "mapGenieId": 166496,
+    "altFlags": [
+      1037508600,
+      1037508500,
+      1037508510,
+      1037508540
+    ]
   },
   {
     "id": "item-1966",
@@ -55484,7 +55488,13 @@
     ],
     "description": "**Location:** At the base of the Golden Tree in the ravine to the south of a burnt up Minor Erdtree.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/a97d799e-69ab-45ba-b362-2d01ce054326.png",
-    "mapGenieId": 167985
+    "mapGenieId": 167985,
+    "altFlags": [
+      1037538600,
+      1037538500,
+      1037538510,
+      1037538540
+    ]
   },
   {
     "id": "item-1982",
@@ -56829,9 +56839,16 @@
     "itemKeys": [
       "g:10010"
     ],
-    "description": "**Location:** At the foot of a Golden Tree on the western side of the Altus Plateau, leading toward the Abandoned Coffins and exit to the Ruin-Strewn Precipice dungeon.",
+    "description": "**Location:** At the foot of a Golden Tree next to the Erdtree-Gazing Hill Site of Grace, below the Wyndham Ruins (where the Tibia Mariner is located).\n\n**Местонахождение:** У подножия золотого деревца прямо возле места благодати «Холм с видом на Древо Эрд», внизу под утесом руин Виндхема (где плавает лодочник Тибия).",
     "mediaUrl": "https://media.mapgenie.io/storage/media/f8d5c953-75f2-42de-89f1-9df8245aa0df.jpg",
-    "mapGenieId": 166527
+    "mapGenieId": 166527,
+    "altFlags": [
+      1038518600,
+      1038518500,
+      1038518510,
+      1038518540
+    ],
+    "placeName": "Плато Альтус (Холм с видом на Древо Эрд / под руинами Виндхема)"
   },
   {
     "id": "item-2046",
@@ -58228,7 +58245,13 @@
     ],
     "description": "**Location:** At the base of the golden tree on the side of the road when headed North from \"Altus Highway Junction\" Site of Grace.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/11319c3a-f525-4c4e-92f9-63a2786d7275.jpeg",
-    "mapGenieId": 166523
+    "mapGenieId": 166523,
+    "altFlags": [
+      1039518600,
+      1039518500,
+      1039518510,
+      1039518540
+    ]
   },
   {
     "id": "item-2112",
@@ -60111,7 +60134,10 @@
     ],
     "description": "On the corpse on the wooden platforms just outside Stormhill Shack",
     "mediaUrl": "https://media.mapgenie.io/storage/media/cfb0fa91-ec4e-4c28-bd26-8a6711b8824c.png",
-    "mapGenieId": 163947
+    "mapGenieId": 163947,
+    "altFlags": [
+      68230
+    ]
   },
   {
     "id": "item-2202",
@@ -60153,7 +60179,13 @@
     ],
     "description": "By the golden tree in West Limgrave beside the path from the Storm Gate to the Stormhill Shack.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/600b5e20-d816-4528-a583-fec3565ad5e2.png",
-    "mapGenieId": 163957
+    "mapGenieId": 163957,
+    "altFlags": [
+      1041388600,
+      1041388500,
+      1041388510,
+      1041388540
+    ]
   },
   {
     "id": "item-2204",
@@ -60646,7 +60678,13 @@
     ],
     "description": "**Location:** At the base of a golden tree in the foggy woods where a Minor Erdtree is located, east of a broken great bridge.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/99664deb-74fc-40fe-94d1-68d9c0c7139a.jpg",
-    "mapGenieId": 166644
+    "mapGenieId": 166644,
+    "altFlags": [
+      1041548600,
+      1041548500,
+      1041548510,
+      1041548540
+    ]
   },
   {
     "id": "item-2228",
@@ -61659,7 +61697,13 @@
     ],
     "description": "At the base of the golden tree on the southwestern edge of the Capital Outskirts.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/358f04ee-77ae-4ad1-b051-d9f99dfb03fe.jpg",
-    "mapGenieId": 166423
+    "mapGenieId": 166423,
+    "altFlags": [
+      1042518600,
+      1042518500,
+      1042518510,
+      1042518540
+    ]
   },
   {
     "id": "item-2275",
@@ -61680,7 +61724,13 @@
     ],
     "description": "At the base of the golden tree on the southwestern edge of the Capital Outskirts.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/358f04ee-77ae-4ad1-b051-d9f99dfb03fe.jpg",
-    "mapGenieId": 166423
+    "mapGenieId": 166423,
+    "altFlags": [
+      1042518600,
+      1042518500,
+      1042518510,
+      1042518540
+    ]
   },
   {
     "id": "item-2276",
@@ -62100,7 +62150,13 @@
     ],
     "description": "**Location:** At the base of a golden tree guarded by multiple trebuchets near the northern entrance to the Capital Outskirts.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/6f3db0d6-55b1-40eb-a930-5202da4c6333.jpg",
-    "mapGenieId": 167596
+    "mapGenieId": 167596,
+    "altFlags": [
+      1042548600,
+      1042548500,
+      1042548510,
+      1042548540
+    ]
   },
   {
     "id": "item-2296",
@@ -63294,7 +63350,13 @@
     ],
     "description": "Under the larger Golden Tree in the center of the courtyard.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/a92c50c2-f1c7-41cd-b343-a9913d13a703.jpg",
-    "mapGenieId": 166522
+    "mapGenieId": 166522,
+    "altFlags": [
+      1043528600,
+      1043528500,
+      1043528510,
+      1043528540
+    ]
   },
   {
     "id": "item-2352",
@@ -63315,7 +63377,13 @@
     ],
     "description": "Under the larger Golden Tree in the center of the courtyard.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/a92c50c2-f1c7-41cd-b343-a9913d13a703.jpg",
-    "mapGenieId": 166522
+    "mapGenieId": 166522,
+    "altFlags": [
+      1043528600,
+      1043528500,
+      1043528510,
+      1043528540
+    ]
   },
   {
     "id": "item-2353",
@@ -63610,7 +63678,13 @@
     ],
     "description": "**Location:** At the foot of the golden tree on the ledge overlooking Castle Morne in the Weeping Peninsula.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/b015b702-d93e-4b47-937a-16b39bbd713d.png",
-    "mapGenieId": 165134
+    "mapGenieId": 165134,
+    "altFlags": [
+      1044328600,
+      1044328500,
+      1044328510,
+      1044328540
+    ]
   },
   {
     "id": "item-2367",
@@ -65219,6 +65293,7 @@
       "g:9420"
     ],
     "altFlags": [
+      65020,
       1045387010,
       1045387021,
       1045387022,
@@ -65821,7 +65896,13 @@
     ],
     "description": "Under a glowing tree in the open near [Fort Haight](https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=164002) in East Limgrave.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/e36b5e05-9a3d-4bad-85df-2521bdeaf17a.png",
-    "mapGenieId": 164181
+    "mapGenieId": 164181,
+    "altFlags": [
+      1046368600,
+      1046368500,
+      1046368510,
+      1046368540
+    ]
   },
   {
     "id": "item-2470",
@@ -68085,7 +68166,13 @@
     ],
     "description": "**Location:** At the foot of a Golden Tree by a frozen river to the west of Ordina, the Liturgical Town leading to Miquella's Haligtree.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/1f37da7a-d3d0-4955-9207-4149df2b5881.jpg",
-    "mapGenieId": 167909
+    "mapGenieId": 167909,
+    "altFlags": [
+      1048578600,
+      1048578500,
+      1048578510,
+      1048578540
+    ]
   },
   {
     "id": "item-2578",
@@ -68233,7 +68320,13 @@
     ],
     "description": "At the base of a golden tree along the path that leads south to Castle Redmane.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/5f151e87-cf7d-43ea-ab1d-8292b2d00926.jpg",
-    "mapGenieId": 164369
+    "mapGenieId": 164369,
+    "altFlags": [
+      1049378600,
+      1049378500,
+      1049378510,
+      1049378540
+    ]
   },
   {
     "id": "item-2585",
@@ -68906,7 +68999,13 @@
     ],
     "description": "**Location:** At the foot of a Golden Tree on the path through to the Mountaintops of the Giants, just past a Black Blade Kindred.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/c599e4d3-bd8c-44fb-8833-299845712b54.png",
-    "mapGenieId": 167160
+    "mapGenieId": 167160,
+    "altFlags": [
+      1049528600,
+      1049528500,
+      1049528510,
+      1049528540
+    ]
   },
   {
     "id": "item-2617",
@@ -69244,7 +69343,13 @@
     ],
     "description": "**Location:** In the secret Consecrated Snowfield region, Though hard to see due to the snow, ride north from the dungeon the exits into the snowfield to find a large tree with the seed at the base.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/f2813d57-03bb-46a5-b705-33ca7ca09dd5.jpg",
-    "mapGenieId": 168092
+    "mapGenieId": 168092,
+    "altFlags": [
+      1049558600,
+      1049558500,
+      1049558510,
+      1049558540
+    ]
   },
   {
     "id": "item-2633",
@@ -69727,7 +69832,13 @@
     ],
     "description": "**Location:** Up the stairs, at the base of a golden tree near the large door at the north end of [Sellia, Town of Sorcery](https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=164388).",
     "mediaUrl": "https://media.mapgenie.io/storage/media/1e96ea8d-d68b-4383-bca0-80495c983b7e.png",
-    "mapGenieId": 165726
+    "mapGenieId": 165726,
+    "altFlags": [
+      1050398600,
+      1050398500,
+      1050398510,
+      1050398540
+    ]
   },
   {
     "id": "item-2656",
@@ -70773,7 +70884,13 @@
     ],
     "description": "At the base of the golden tree along the path just outside of the Bestial Sanctum where Gurranq resides.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/b9b77816-a8da-4ef3-b26d-4acd574881b5.jpg",
-    "mapGenieId": 164368
+    "mapGenieId": 164368,
+    "altFlags": [
+      1051438600,
+      1051438500,
+      1051438510,
+      1051438540
+    ]
   },
   {
     "id": "item-2706",
@@ -71929,7 +72046,13 @@
     ],
     "description": "Base of a Golden Tree across the large chain leading to the southeast portion of the Mountaintops of the Giants, among large frozen corpses.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/3cc9dfc5-8445-4bea-a101-70328b333f66.jpg",
-    "mapGenieId": 167990
+    "mapGenieId": 167990,
+    "altFlags": [
+      1052538600,
+      1052538500,
+      1052538510,
+      1052538540
+    ]
   },
   {
     "id": "item-2762",
@@ -72348,7 +72471,13 @@
     ],
     "description": "**Location:** Under a golden tree - guarded by a giant Golem by a frozen river in the Mountaintops of the Giants.",
     "mediaUrl": "https://media.mapgenie.io/storage/media/994ea898-087c-4a6f-9806-7da31da95ab5.jpeg",
-    "mapGenieId": 168605
+    "mapGenieId": 168605,
+    "altFlags": [
+      1052578600,
+      1052578500,
+      1052578510,
+      1052578540
+    ]
   },
   {
     "id": "item-2782",
@@ -84585,8 +84714,8 @@
     "layer": "base-game-underground",
     "name": "Prince of Death's Cyst",
     "nameRu": "Киста принца Смерти",
-    "px": 4377.5,
-    "py": 3368.3,
+    "px": 4405.5,
+    "py": 3377.3,
     "flagId": 12037990,
     "dropSource": "Runebear",
     "dropSourceRu": "Медведь рун",
@@ -86681,8 +86810,8 @@
     "px": 3233.7,
     "py": 6493.9,
     "flagId": 540100,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:30600"
@@ -86705,8 +86834,8 @@
     "px": 3386.1,
     "py": 6675,
     "flagId": 540104,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:11000"
@@ -86729,8 +86858,8 @@
     "px": 4046.4,
     "py": 7114.8,
     "flagId": 540108,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:60000"
@@ -86753,8 +86882,8 @@
     "px": 4128,
     "py": 7422.1,
     "flagId": 540112,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:11400"
@@ -86776,8 +86905,8 @@
     "px": 4490.9,
     "py": 7096.6,
     "flagId": 540116,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:50600"
@@ -86800,8 +86929,8 @@
     "px": 4628.1,
     "py": 6608.8,
     "flagId": 540118,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:20100"
@@ -86824,8 +86953,8 @@
     "px": 3405.5,
     "py": 7103.1,
     "flagId": 540120,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:10700"
@@ -86848,8 +86977,8 @@
     "px": 3665.6,
     "py": 7944,
     "flagId": 540132,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 2,
     "itemKeys": [
       "g:6480"
@@ -86872,8 +87001,8 @@
     "px": 4012.6,
     "py": 8147.1,
     "flagId": 540136,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 2,
     "itemKeys": [
       "g:6920"
@@ -86896,8 +87025,8 @@
     "px": 4337.6,
     "py": 8365.6,
     "flagId": 540138,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 2,
     "itemKeys": [
       "g:7220"
@@ -86920,8 +87049,8 @@
     "px": 4298.2,
     "py": 8067.2,
     "flagId": 540140,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:40200"
@@ -86944,8 +87073,8 @@
     "px": 4132,
     "py": 6841.9,
     "flagId": 540142,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10160"
@@ -86968,8 +87097,8 @@
     "px": 3377.7,
     "py": 7674.4,
     "flagId": 540144,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10160"
@@ -86992,8 +87121,8 @@
     "px": 3805.1,
     "py": 6494.6,
     "flagId": 540146,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10160"
@@ -87016,8 +87145,8 @@
     "px": 3025,
     "py": 6641.8,
     "flagId": 540170,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:12200"
@@ -87039,8 +87168,8 @@
     "px": 3102.9,
     "py": 6529.2,
     "flagId": 540172,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:12300"
@@ -87063,8 +87192,8 @@
     "px": 3045.7,
     "py": 6627.8,
     "flagId": 540174,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 2,
     "itemKeys": [
       "g:5000"
@@ -87087,8 +87216,8 @@
     "px": 1779.3,
     "py": 3588.5,
     "flagId": 540200,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:22700"
@@ -87111,8 +87240,8 @@
     "px": 2090,
     "py": 5241.5,
     "flagId": 540202,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:10500"
@@ -87135,8 +87264,8 @@
     "px": 2085.2,
     "py": 3930.6,
     "flagId": 540204,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:50100"
@@ -87158,8 +87287,8 @@
     "px": 2912.3,
     "py": 6415.2,
     "flagId": 540206,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:31000"
@@ -87182,8 +87311,8 @@
     "px": 2007.8,
     "py": 5813.6,
     "flagId": 540208,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:70100"
@@ -87206,8 +87335,8 @@
     "px": 1983.1,
     "py": 4550.8,
     "flagId": 540210,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:30000"
@@ -87230,8 +87359,8 @@
     "px": 1774.2,
     "py": 5316.7,
     "flagId": 540218,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 2,
     "itemKeys": [
       "g:6320"
@@ -87278,8 +87407,8 @@
     "px": 2540.3,
     "py": 3566.7,
     "flagId": 540224,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:65000"
@@ -87302,8 +87431,8 @@
     "px": 2549.8,
     "py": 4134.7,
     "flagId": 540236,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "g:7320"
@@ -87326,8 +87455,8 @@
     "px": 1382.8,
     "py": 5406,
     "flagId": 540238,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:12400"
@@ -87350,8 +87479,8 @@
     "px": 2018.5,
     "py": 3606.5,
     "flagId": 540250,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 2,
     "itemKeys": [
       "g:4490"
@@ -87374,8 +87503,8 @@
     "px": 2881.3,
     "py": 5542.1,
     "flagId": 540252,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10161"
@@ -87398,8 +87527,8 @@
     "px": 2370,
     "py": 4241.1,
     "flagId": 540254,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10161"
@@ -87422,8 +87551,8 @@
     "px": 2591.6,
     "py": 3706.1,
     "flagId": 540256,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10162"
@@ -87446,8 +87575,8 @@
     "px": 2846.7,
     "py": 5105,
     "flagId": 540258,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10162"
@@ -87469,8 +87598,8 @@
     "px": 1732.5,
     "py": 5601.7,
     "flagId": 540260,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10161"
@@ -87492,8 +87621,8 @@
     "px": 2314.1,
     "py": 5130.1,
     "flagId": 540262,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10161"
@@ -87516,8 +87645,8 @@
     "px": 1508.3,
     "py": 5000.1,
     "flagId": 540264,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10161"
@@ -87540,8 +87669,8 @@
     "px": 1910.9,
     "py": 4867,
     "flagId": 540272,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:22600"
@@ -87564,8 +87693,8 @@
     "px": 2565.2,
     "py": 3638.6,
     "flagId": 540290,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10163"
@@ -87587,8 +87716,8 @@
     "px": 2295.8,
     "py": 3401.4,
     "flagId": 540300,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:60400"
@@ -87611,8 +87740,8 @@
     "px": 2641.9,
     "py": 3415.3,
     "flagId": 540302,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:30800"
@@ -87656,8 +87785,8 @@
     "px": 2815.9,
     "py": 3266.5,
     "flagId": 540306,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:22400"
@@ -87680,8 +87809,8 @@
     "px": 3406.6,
     "py": 2875.6,
     "flagId": 540308,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:50700"
@@ -87704,8 +87833,8 @@
     "px": 3316.5,
     "py": 3290.2,
     "flagId": 540310,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:50400"
@@ -87728,8 +87857,8 @@
     "px": 3322.8,
     "py": 2651.4,
     "flagId": 540312,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 2,
     "itemKeys": [
       "g:6340"
@@ -87752,8 +87881,8 @@
     "px": 3867.7,
     "py": 3486.6,
     "flagId": 540314,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:20800"
@@ -87775,8 +87904,8 @@
     "px": 3921,
     "py": 3260.4,
     "flagId": 540316,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:30700"
@@ -87799,8 +87928,8 @@
     "px": 3847.2,
     "py": 2822.4,
     "flagId": 540318,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:21700"
@@ -87823,8 +87952,8 @@
     "px": 3167.2,
     "py": 3063.6,
     "flagId": 540320,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10164"
@@ -87847,8 +87976,8 @@
     "px": 2493,
     "py": 3088.1,
     "flagId": 540332,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:40100"
@@ -87871,8 +88000,8 @@
     "px": 2115.4,
     "py": 2732.7,
     "flagId": 540334,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:40000"
@@ -87894,8 +88023,8 @@
     "px": 4335.3,
     "py": 3620.3,
     "flagId": 540370,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 2,
     "itemKeys": [
       "g:6330"
@@ -87918,8 +88047,8 @@
     "px": 4249.5,
     "py": 3490.6,
     "flagId": 540372,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:21600"
@@ -87942,8 +88071,8 @@
     "px": 4987.8,
     "py": 6231,
     "flagId": 540400,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 2,
     "itemKeys": [
       "g:6030"
@@ -87966,8 +88095,8 @@
     "px": 5127,
     "py": 6728.9,
     "flagId": 540402,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:20500"
@@ -87990,8 +88119,8 @@
     "px": 5529,
     "py": 6747.2,
     "flagId": 540404,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:22200"
@@ -88014,8 +88143,8 @@
     "px": 5335.7,
     "py": 6874.9,
     "flagId": 540406,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:22800"
@@ -88037,8 +88166,8 @@
     "px": 6069.3,
     "py": 7439.9,
     "flagId": 540408,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:21400"
@@ -88061,8 +88190,8 @@
     "px": 4919.6,
     "py": 6578.4,
     "flagId": 540410,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:50500"
@@ -88085,8 +88214,8 @@
     "px": 5116.8,
     "py": 6086,
     "flagId": 540412,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:40500"
@@ -88108,8 +88237,8 @@
     "px": 5595.3,
     "py": 7381.9,
     "flagId": 540414,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:60700"
@@ -88131,8 +88260,8 @@
     "px": 5493.2,
     "py": 6526.6,
     "flagId": 540416,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 2,
     "itemKeys": [
       "g:7230"
@@ -88154,8 +88283,8 @@
     "px": 5610,
     "py": 6587.2,
     "flagId": 540418,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:11200"
@@ -88178,8 +88307,8 @@
     "px": 6130.5,
     "py": 6038.3,
     "flagId": 540420,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 2,
     "itemKeys": [
       "g:6850"
@@ -88202,8 +88331,8 @@
     "px": 4903.3,
     "py": 6446.1,
     "flagId": 540422,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10163"
@@ -88226,8 +88355,8 @@
     "px": 5410.4,
     "py": 7255.5,
     "flagId": 540424,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10163"
@@ -88250,8 +88379,8 @@
     "px": 5498.6,
     "py": 6126.6,
     "flagId": 540426,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10167"
@@ -88274,8 +88403,8 @@
     "px": 6062.3,
     "py": 5741.8,
     "flagId": 540428,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10200"
@@ -88322,8 +88451,8 @@
     "px": 6546.8,
     "py": 1847.4,
     "flagId": 540510,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:60600"
@@ -88367,8 +88496,8 @@
     "px": 6237.9,
     "py": 2438.5,
     "flagId": 540516,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:11300"
@@ -88412,8 +88541,8 @@
     "px": 5261.7,
     "py": 2165.8,
     "flagId": 540524,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:85000"
@@ -88435,8 +88564,8 @@
     "px": 2060.8,
     "py": 2938.7,
     "flagId": 540590,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10164"
@@ -88459,8 +88588,8 @@
     "px": 2225,
     "py": 2972.7,
     "flagId": 540592,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10164"
@@ -88483,8 +88612,8 @@
     "px": 8468.6,
     "py": 4462,
     "flagId": 540772,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 2,
     "itemKeys": [
       "g:7903"
@@ -89217,8 +89346,8 @@
     "px": 4795.6,
     "py": 3516.6,
     "flagId": 34147720,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10165"
@@ -89241,8 +89370,8 @@
     "px": 4442.7,
     "py": 3456.6,
     "flagId": 35007970,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10165"
@@ -89482,7 +89611,7 @@
     "nameRu": "Пальцевой виноград + Боевое копьё Вика",
     "px": 2505.3,
     "py": 4051.1,
-    "flagId": 1037497300,
+    "flagId": 1038480700,
     "dropSource": "Festering Fingerprint Vyke",
     "dropSourceRu": "Вик Гниющий Отпечаток",
     "rarity": 2,
@@ -89491,7 +89620,11 @@
       "w:17050000"
     ],
     "description": "**Location:** Dropped by [Festering Fingerprint Vyke](https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=167188).  \n**Utility:** Part of [Hyetta's Quest](https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=169804).",
-    "mapGenieId": 168230
+    "mapGenieId": 168230,
+    "altFlags": [
+      1037497300,
+      1038480701
+    ]
   },
   {
     "id": "item-3587",
@@ -89529,7 +89662,7 @@
     "nameRu": "Разделочный нож",
     "px": 2587.6,
     "py": 2688,
-    "flagId": 1038547700,
+    "flagId": 1038540700,
     "dropSource": "Anastasia, Tarnished-Eater",
     "dropSourceRu": "Анастасия, пожирательница Погасших",
     "rarity": 2,
@@ -89538,7 +89671,11 @@
     ],
     "description": "**Location:** Dropped by [Anastasia, Tarnished-Eater](https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=166625)  \n**Type:** Greataxe  \n**Weapon Skill:** Barbaric Roar  \n**Note:** Comes with the Sacred enchantment, but can be replaced as normal",
     "mediaUrl": "https://media.mapgenie.io/storage/media/cb76408e-9ad4-4094-9af0-c1e10d7cf4d0.jpg",
-    "mapGenieId": 167807
+    "mapGenieId": 167807,
+    "altFlags": [
+      1038547700,
+      1038540701
+    ]
   },
   {
     "id": "item-3589",
@@ -89686,7 +89823,7 @@
     "nameRu": "Талисман молота",
     "px": 3657.6,
     "py": 6422,
-    "flagId": 1042397700,
+    "flagId": 1042390710,
     "dropSource": "Recusant Henricus",
     "dropSourceRu": "Мятежник Хенрик",
     "rarity": 2,
@@ -89694,7 +89831,11 @@
       "t:2070"
     ],
     "description": "**Location:** Dropped by [Recusant Henricus](https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=165607), who will not invade if you have joined the Volcano Manor.",
-    "mapGenieId": 165609
+    "mapGenieId": 165609,
+    "altFlags": [
+      1042397700,
+      1042390700
+    ]
   },
   {
     "id": "item-3596",
@@ -89714,7 +89855,11 @@
       "g:10010"
     ],
     "altFlags": [
-      1042500300
+      1042500300,
+      1042508600,
+      1042508500,
+      1042508510,
+      1042508540
     ],
     "description": "**Location:** Directly South of [Outer Wall Phantom Tree](https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=165475) site of grace. It drops from the [Ulcerated Tree Spirit](https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=167586).",
     "mediaUrl": "https://media.mapgenie.io/storage/media/5b6497c2-68e4-4b94-ae7d-4f0bae7019a5.png",
@@ -89972,7 +90117,7 @@
     "nameRu": "Амулет со священным скорпионом",
     "px": 4661.2,
     "py": 6250.7,
-    "flagId": 1046407700,
+    "flagId": 1046400701,
     "dropSource": "Anastasia, Tarnished-Eater",
     "dropSourceRu": "Анастасия, пожирательница Погасших",
     "rarity": 2,
@@ -89981,7 +90126,12 @@
     ],
     "description": "**Location:** Dropped by from [Anastasia, Tarnished-Eater](https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=165194)",
     "mediaUrl": "https://media.mapgenie.io/storage/media/ff159bbb-db35-48a9-94f1-893bef30dfc5.png",
-    "mapGenieId": 165195
+    "mapGenieId": 165195,
+    "altFlags": [
+      1046407700,
+      1046400700,
+      1046400710
+    ]
   },
   {
     "id": "item-3609",
@@ -90155,7 +90305,7 @@
     "nameRu": "Драконий кузнечный камень мрака",
     "px": 5229.8,
     "py": 2221.2,
-    "flagId": 1048567800,
+    "flagId": 1048560700,
     "dropSource": "Anastasia, Tarnished-Eater",
     "dropSourceRu": "Анастасия, пожирательница Погасших",
     "rarity": 7,
@@ -90164,7 +90314,11 @@
     ],
     "description": "Dropped by [Anastasia Tarnished-Eater](https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=168843) after her third invasion.\n\nOtherwise, she will drop a [Sacred Scorpion Charm](https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=165195) (first invasion) or [Sacred Butchering Knife](https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=167807) (second invasion).",
     "mediaUrl": "https://media.mapgenie.io/storage/media/51596657-9d83-4e24-b1ee-4f357d0546ba.jpg",
-    "mapGenieId": 171320
+    "mapGenieId": 171320,
+    "altFlags": [
+      1048567800,
+      1048560701
+    ]
   },
   {
     "id": "item-3617",
@@ -90386,8 +90540,8 @@
     "px": 5470.4,
     "py": 2630.4,
     "flagId": 1049547700,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10167"
@@ -90430,8 +90584,8 @@
     "px": 5520.4,
     "py": 2066.4,
     "flagId": 1049577700,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10166"
@@ -90450,8 +90604,8 @@
     "px": 5511.9,
     "py": 2035.7,
     "flagId": 1049577710,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10167"
@@ -90470,8 +90624,8 @@
     "px": 5539.6,
     "py": 2047.6,
     "flagId": 1049577720,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10200"
@@ -90513,8 +90667,8 @@
     "px": 5704.3,
     "py": 2943,
     "flagId": 1050537700,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10166"
@@ -90579,7 +90733,7 @@
     "nameRu": "Реки крови + Маска Окины",
     "px": 5995.6,
     "py": 2993.2,
-    "flagId": 1051537500,
+    "flagId": 1051530180,
     "dropSource": "Bloody Finger Okina",
     "dropSourceRu": "Окина, Окровавленный палец",
     "rarity": 2,
@@ -90589,7 +90743,11 @@
     ],
     "description": "**Location:** Dropped by [Bloody Finger Okina](https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=165749)  \n\n**Type:** Katana  \n\n**Weapon Skill:** Corpse Piler",
     "mediaUrl": "https://media.mapgenie.io/storage/media/11f73b58-066c-431b-8860-9d8cbe120ba4.jpg",
-    "mapGenieId": 167989
+    "mapGenieId": 167989,
+    "altFlags": [
+      1051537500,
+      1051530181
+    ]
   },
   {
     "id": "item-3637",
@@ -90602,8 +90760,8 @@
     "px": 6106.4,
     "py": 2953.8,
     "flagId": 1051537700,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10167"
@@ -90622,8 +90780,8 @@
     "px": 5992.6,
     "py": 2294.8,
     "flagId": 1051567700,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10167"
@@ -90809,8 +90967,8 @@
     "px": 2081.1,
     "py": 4972.8,
     "flagId": 540600,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10165"
@@ -90833,8 +90991,8 @@
     "px": 2171.7,
     "py": 4259.9,
     "flagId": 540602,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10165"
@@ -90857,8 +91015,8 @@
     "px": 5073.7,
     "py": 6660,
     "flagId": 540610,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 2,
     "itemKeys": [
       "g:5110"
@@ -90881,8 +91039,8 @@
     "px": 5227.3,
     "py": 6517.4,
     "flagId": 540630,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:11500"
@@ -90904,8 +91062,8 @@
     "px": 4897.6,
     "py": 6980.4,
     "flagId": 540642,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10164"
@@ -90928,8 +91086,8 @@
     "px": 4847.1,
     "py": 6489.4,
     "flagId": 540646,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:40400"
@@ -90952,8 +91110,8 @@
     "px": 5134.8,
     "py": 6470.5,
     "flagId": 540648,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 2,
     "itemKeys": [
       "g:6780"
@@ -90976,8 +91134,8 @@
     "px": 4697.8,
     "py": 6968.4,
     "flagId": 540652,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 2,
     "itemKeys": [
       "g:5100"
@@ -90997,11 +91155,11 @@
     "layer": "base-game-underground",
     "name": "Ash of War: Golden Land",
     "nameRu": "Пепел Войны: Золотой край",
-    "px": 4648.8,
-    "py": 3640.3,
+    "px": 4676.8,
+    "py": 3649.3,
     "flagId": 540660,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:21300"
@@ -91021,11 +91179,11 @@
     "layer": "base-game-underground",
     "name": "Somber Smithing Stone [6]",
     "nameRu": "Кузнечный камень мрака [6]",
-    "px": 4024.1,
-    "py": 3181,
+    "px": 4052.1,
+    "py": 3190,
     "flagId": 540668,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10165"
@@ -91045,11 +91203,11 @@
     "layer": "base-game-underground",
     "name": "Somber Smithing Stone [6]",
     "nameRu": "Кузнечный камень мрака [6]",
-    "px": 4266.3,
-    "py": 3290.1,
+    "px": 4294.3,
+    "py": 3299.1,
     "flagId": 540670,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10165"
@@ -91072,8 +91230,8 @@
     "px": 5933.1,
     "py": 6753.6,
     "flagId": 540686,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:10800"
@@ -91196,8 +91354,8 @@
     "layer": "base-game-underground",
     "name": "Numen's Rune + Rune Arc",
     "nameRu": "Руна нумена + Руническая дуга",
-    "px": 4513.4,
-    "py": 3397.4,
+    "px": 4541.4,
+    "py": 3406.4,
     "flagId": 12037800,
     "dropSource": "Giant Ant (Replete)",
     "dropSourceRu": null,
@@ -91217,8 +91375,8 @@
     "layer": "base-game-underground",
     "name": "Numen's Rune + Rune Arc",
     "nameRu": "Руна нумена + Руническая дуга",
-    "px": 4508.4,
-    "py": 3402.7,
+    "px": 4536.4,
+    "py": 3411.7,
     "flagId": 12037810,
     "dropSource": "Giant Ant (Replete)",
     "dropSourceRu": null,
@@ -91238,8 +91396,8 @@
     "layer": "base-game-underground",
     "name": "Numen's Rune + Rune Arc",
     "nameRu": "Руна нумена + Руническая дуга",
-    "px": 4522.4,
-    "py": 3400.2,
+    "px": 4550.4,
+    "py": 3409.2,
     "flagId": 12037820,
     "dropSource": "Giant Ant (Replete)",
     "dropSourceRu": null,
@@ -91259,8 +91417,8 @@
     "layer": "base-game-underground",
     "name": "Numen's Rune + Rune Arc",
     "nameRu": "Руна нумена + Руническая дуга",
-    "px": 4518.6,
-    "py": 3410.5,
+    "px": 4546.6,
+    "py": 3419.5,
     "flagId": 12037830,
     "dropSource": "Giant Ant (Replete)",
     "dropSourceRu": null,
@@ -91280,8 +91438,8 @@
     "layer": "base-game-underground",
     "name": "Numen's Rune + Rune Arc",
     "nameRu": "Руна нумена + Руническая дуга",
-    "px": 4552.2,
-    "py": 3419.7,
+    "px": 4580.2,
+    "py": 3428.7,
     "flagId": 12037840,
     "dropSource": "Giant Ant (Replete)",
     "dropSourceRu": null,
@@ -91301,8 +91459,8 @@
     "layer": "base-game-underground",
     "name": "Numen's Rune + Rune Arc",
     "nameRu": "Руна нумена + Руническая дуга",
-    "px": 4631.5,
-    "py": 3481.5,
+    "px": 4659.5,
+    "py": 3490.5,
     "flagId": 12037850,
     "dropSource": "Giant Ant (Replete)",
     "dropSourceRu": null,
@@ -91322,8 +91480,8 @@
     "layer": "base-game-underground",
     "name": "Siluria's Tree",
     "nameRu": "Дерево Силурии",
-    "px": 3969.1,
-    "py": 3222.8,
+    "px": 3997.1,
+    "py": 3231.8,
     "flagId": 12037950,
     "dropSource": "Crucible Knight Siluria",
     "dropSourceRu": "Рыцарь Горнила Силурия",
@@ -91346,8 +91504,8 @@
     "layer": "base-game-underground",
     "name": "Staff of the Avatar",
     "nameRu": "Посох воплощения",
-    "px": 4665.1,
-    "py": 3580.2,
+    "px": 4693.1,
+    "py": 3589.2,
     "flagId": 12037960,
     "dropSource": "Erdtree Avatar (Deeproot Depths)",
     "dropSourceRu": "Воплощение Древа Эрд",
@@ -91868,8 +92026,8 @@
     "px": 5804.8,
     "py": 5032.6,
     "flagId": 540900,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:418000"
@@ -91915,8 +92073,8 @@
     "px": 5359.7,
     "py": 4712.8,
     "flagId": 540904,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:405000"
@@ -91961,8 +92119,8 @@
     "px": 5225.7,
     "py": 4402,
     "flagId": 540910,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 258,
     "itemKeys": [
       "e:403000"
@@ -92008,8 +92166,8 @@
     "px": 5214.5,
     "py": 4459.6,
     "flagId": 540914,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10166"
@@ -92054,8 +92212,8 @@
     "px": 5366.4,
     "py": 5296.6,
     "flagId": 540920,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10167"
@@ -92711,8 +92869,8 @@
     "px": 5870.4,
     "py": 5135.5,
     "flagId": 2050447740,
-    "dropSource": null,
-    "dropSourceRu": null,
+    "dropSource": "Scarab",
+    "dropSourceRu": "Скарабей слёз",
     "rarity": 31,
     "itemKeys": [
       "g:10167"

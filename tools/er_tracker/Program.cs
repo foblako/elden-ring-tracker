@@ -111,7 +111,7 @@ namespace ErTracker
             { 0xB05, new DungeonAnchor(11, 5, 4366.70f, 3446.60f, "base-game", "Leyndell, Capital of Ash") },
             { 0xC01, new DungeonAnchor(12, 1, 2362.39f, 4580.02f, "base-game-underground", "Ainsel River / Nokstella") },
             { 0xC02, new DungeonAnchor(12, 2, 5016.63f, 6666.57f, "base-game-underground", "Siofra River") },
-            { 0xC03, new DungeonAnchor(12, 3, 4417.10f, 3368.65f, "base-game-underground", "Deeproot Depths") },
+            { 0xC03, new DungeonAnchor(12, 3, 4445.10f, 3377.65f, "base-game-underground", "Deeproot Depths") },
             { 0xC04, new DungeonAnchor(12, 4, 1599.50f, 6093.80f, "base-game-underground", "Lake of Rot / Grand Cloister") },
             { 0xC05, new DungeonAnchor(12, 5, 5710.20f, 6809.88f, "base-game-underground", "Mohgwyn Palace") },
             { 0xC07, new DungeonAnchor(12, 7, 4569.05f, 6992.95f, "base-game-underground", "Siofra River Well Depths") },

@@ -230,14 +230,13 @@ export const TrackerProvider: React.FC<{ children: ReactNode }> = ({ children })
       }
     }
 
-    const newCollected: Record<string, boolean> = {};
-    for (const id of markerIdsToCollect) {
-      newCollected[id] = true;
-    }
-
     setProfiles((prev) =>
       prev.map((prof) => {
         if (prof.id !== currentProfile.id) return prof;
+        const newCollected: Record<string, boolean> = { ...prof.collectedIds };
+        for (const id of markerIdsToCollect) {
+          newCollected[id] = true;
+        }
         return {
           ...prof,
           name: slot.name || prof.name,

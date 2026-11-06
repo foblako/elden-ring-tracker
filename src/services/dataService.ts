@@ -158,6 +158,7 @@ export function filterMarkers(
       const place = (m.placeName || '').toLowerCase();
       const drop = (m.dropSource || '').toLowerCase();
       const dropRu = (m.dropSourceRu || '').toLowerCase();
+      const desc = (m.description || '').toLowerCase();
 
       for (const token of searchTokens) {
         if (
@@ -165,7 +166,8 @@ export function filterMarkers(
           !nameRu.includes(token) &&
           !place.includes(token) &&
           !drop.includes(token) &&
-          !dropRu.includes(token)
+          !dropRu.includes(token) &&
+          !desc.includes(token)
         ) {
           return false;
         }

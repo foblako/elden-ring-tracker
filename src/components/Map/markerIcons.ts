@@ -152,7 +152,15 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
       label: 'Золотое семечко',
     };
   }
-  if (name.includes('sacred tear') || name.includes('crystal tear') || name.includes('tear')) {
+  if (
+    name.includes('sacred tear') ||
+    name.includes('crystal tear') ||
+    name.includes('cracked tear') ||
+    name.includes('bubbletear') ||
+    name.includes('hardtear') ||
+    name.includes('dried tear') ||
+    name.includes('hidden tear')
+  ) {
     return {
       iconUrl: '/icons/categories/crystal_tears.png',
       borderColor: '#4ade80',
@@ -300,7 +308,7 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
       iconUrl: '/icons/categories/glove.png',
       borderColor: '#5eead4',
       glowColor: '#0d9488',
-      size: 30,
+      size: 33,
       label: 'Призрачный ландыш',
     };
   }
@@ -309,7 +317,7 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
       iconUrl: '/icons/categories/smst_high.png',
       borderColor: '#cbd5e1',
       glowColor: '#94a3b8',
-      size: 30,
+      size: 33,
       label: 'Кузнечный камень мрака',
     };
   }
@@ -318,7 +326,7 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
       iconUrl: '/icons/categories/smst.png',
       borderColor: '#94a3b8',
       glowColor: '#64748b',
-      size: 30,
+      size: 33,
       label: 'Кузнечный камень',
     };
   }
@@ -333,7 +341,7 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
       iconUrl: '/icons/categories/rune_high.png',
       borderColor: '#fbbf24',
       glowColor: '#d97706',
-      size: 30,
+      size: 33,
       label: 'Великая Руна / Прах',
     };
   }
@@ -351,7 +359,7 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
       iconUrl: '/icons/categories/rune_low.png',
       borderColor: '#d97706',
       glowColor: '#b45309',
-      size: 28,
+      size: 32,
       label: 'Золотая руна',
     };
   }
@@ -360,7 +368,7 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
       iconUrl: '/icons/categories/shard.png',
       borderColor: '#38bdf8',
       glowColor: '#0284c7',
-      size: 30,
+      size: 33,
       label: 'Осколок звездосвета',
     };
   }
@@ -369,7 +377,7 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
       iconUrl: '/icons/categories/finger.png',
       borderColor: '#f43f5e',
       glowColor: '#e11d48',
-      size: 30,
+      size: 33,
       label: 'Сетевой палец / Зелье',
     };
   }
@@ -387,7 +395,7 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
       iconUrl: '/icons/categories/pate.png',
       borderColor: '#a1a1aa',
       glowColor: '#71717a',
-      size: 30,
+      size: 33,
       label: 'Говорящая голова',
     };
   }
@@ -405,7 +413,7 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
       iconUrl: '/icons/categories/gesture.png',
       borderColor: '#f59e0b',
       glowColor: '#d97706',
-      size: 28,
+      size: 32,
       label: 'Жест',
     };
   }
@@ -414,7 +422,7 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
       iconUrl: '/icons/categories/quest.png',
       borderColor: '#e2e8f0',
       glowColor: '#94a3b8',
-      size: 30,
+      size: 33,
       label: 'Записка / Задание',
     };
   }
@@ -423,7 +431,7 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
       iconUrl: '/icons/categories/grease.png',
       borderColor: '#eab308',
       glowColor: '#ca8a04',
-      size: 28,
+      size: 32,
       label: 'Оружейная смазка',
     };
   }
@@ -432,7 +440,7 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
       iconUrl: '/icons/categories/ammo.png',
       borderColor: '#a1a1aa',
       glowColor: '#71717a',
-      size: 28,
+      size: 32,
       label: 'Стрелы / Болты',
     };
   }
@@ -441,7 +449,7 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
       iconUrl: '/icons/categories/throw.png',
       borderColor: '#94a3b8',
       glowColor: '#64748b',
-      size: 28,
+      size: 32,
       label: 'Метательное оружие',
     };
   }
@@ -452,7 +460,7 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
       iconUrl: '/icons/categories/jump.png',
       borderColor: '#2dd4bf',
       glowColor: '#0d9488',
-      size: 30,
+      size: 33,
       label: 'Воздушный поток',
     };
   }
@@ -567,7 +575,7 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
       iconUrl: '/icons/categories/materials.png',
       borderColor: '#78716c',
       glowColor: '#57534e',
-      size: 28,
+      size: 32,
       label: 'Материал для крафта',
     };
   }
@@ -577,7 +585,7 @@ export function getCategoryVisual(marker: TrackerMarker): MarkerVisualInfo {
     iconUrl: '/icons/categories/consumables.png',
     borderColor: '#71717a',
     glowColor: '#52525b',
-    size: 28,
+    size: 32,
     label: 'Расходник / Предмет',
   };
 }
@@ -591,6 +599,22 @@ export function resolveMarkerIconUrl(
   itemImages?: Record<string, string>
 ): MarkerVisualInfo {
   const catVisual = getCategoryVisual(marker);
+
+  // Teardrop Scarabs: render with the official Teardrop Scarab badge so players immediately see scarab encounters
+  const isScarab = Boolean(
+    (marker.dropSource && marker.dropSource.toLowerCase().includes('scarab')) ||
+    (marker.dropSourceRu && marker.dropSourceRu.toLowerCase().includes('скарабей'))
+  );
+  if (isScarab) {
+    return {
+      iconUrl: '/icons/categories/teardrop_scarab.png',
+      fallbackUrl: '/icons/categories/teardrop_scarab.png',
+      borderColor: '#38bdf8',
+      glowColor: '#0ea5e9',
+      size: 34,
+      label: 'Скарабей слёз',
+    };
+  }
 
   // If item has a specific individual official wiki image, use it!
   // ONLY for physical items. Bosses, Graces, and Merchants always use clean circular game badges!
@@ -627,7 +651,28 @@ export function createMarkerIcon(
 
   const isGrace = marker.type === 'grace' || marker.category === 'graces';
   const isBoss = marker.type.startsWith('boss') || marker.category === 'bosses';
-  const imgScale = isGrace ? 'transform: scale(1.15);' : isBoss ? 'transform: scale(1.1);' : '';
+
+  const nameLower = (marker.name || '').toLowerCase();
+  const nameRuLower = (marker.nameRu || '').toLowerCase();
+  const isThinItem =
+    nameLower.includes('rune') ||
+    nameLower.includes('smithing stone') ||
+    nameLower.includes('somber') ||
+    nameLower.includes('glovewort') ||
+    nameLower.includes('twig') ||
+    nameLower.includes('branch') ||
+    nameLower.includes('needle') ||
+    nameLower.includes('arrow') ||
+    nameLower.includes('bolt') ||
+    nameRuLower.includes('ветв') ||
+    nameRuLower.includes('руна') ||
+    nameRuLower.includes('камень') ||
+    nameRuLower.includes('кузнечный') ||
+    nameRuLower.includes('ландыш') ||
+    nameRuLower.includes('игла') ||
+    nameRuLower.includes('стрел') ||
+    nameRuLower.includes('болт');
+
   const fallback = visual.fallbackUrl || '/icons/categories/consumables.png';
 
   const wishlistBadge = isWishlisted
@@ -638,20 +683,19 @@ export function createMarkerIcon(
     ? `<div class="er-marker-badge-check">✓</div>`
     : '';
 
+  const border = visual.borderColor || '#64748b';
   const glow = visual.glowColor || '#fbbf24';
-  const defaultFilter = `filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 6px ${glow});`;
 
   const html = `
     <div 
-      class="er-marker-floating ${isBoss ? 'er-marker-boss' : ''} ${isCollected ? 'collected' : ''} ${isWishlisted ? 'wishlisted' : ''}" 
-      style="width: ${size}px; height: ${size}px; --marker-glow: ${glow};"
+      class="er-marker-floating ${isGrace ? 'er-marker-grace' : ''} ${isBoss ? 'er-marker-boss' : ''} ${isThinItem ? 'is-thin-item' : ''} ${isCollected ? 'collected' : ''} ${isWishlisted ? 'wishlisted' : ''}" 
+      style="width: ${size}px; height: ${size}px; --marker-border: ${border}; --marker-glow: ${glow};"
     >
       <img 
         class="er-marker-img"
         src="${visual.iconUrl}" 
         alt="${marker.name}" 
         onerror="this.onerror=null; this.src='${fallback}';"
-        style="${defaultFilter} ${imgScale}"
         loading="lazy"
       />
       ${wishlistBadge}

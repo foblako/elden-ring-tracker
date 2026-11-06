@@ -24,6 +24,7 @@ export class LiveSyncService {
   private lastSaveChangeMs: number = 0;
   private lastFlagVersion: number = -1;
   private lastMatchedCount: number = -1;
+  private lastMatchedMarkerIds: string[] = [];
   private locationListeners = new Set<(loc: PlayerLocation) => void>();
   public isRandomizer: boolean = true;
 
@@ -197,6 +198,12 @@ export class LiveSyncService {
 
       this.startMemoryPolling();
 
+      // Authoritative initial sync from local server endpoint
+      await this.pollLocalSave(true);
+      if (chosenSlot && this.lastMatchedMarkerIds.length > 0) {
+        chosenSlot.matchedMarkerIds = [...this.lastMatchedMarkerIds];
+      }
+
       return { success: true, slots };
     } catch (err: any) {
       console.error('Local Save LiveSync Error:', err);
@@ -284,6 +291,12 @@ export class LiveSyncService {
       }, 400);
 
       this.startMemoryPolling();
+
+      // Authoritative initial sync from local server endpoint
+      await this.pollLocalSave(true);
+      if (chosenSlot && this.lastMatchedMarkerIds.length > 0) {
+        chosenSlot.matchedMarkerIds = [...this.lastMatchedMarkerIds];
+      }
 
       return { success: true, slots };
     } catch (err: any) {
@@ -415,11 +428,12 @@ export class LiveSyncService {
 
           this.lastMtime = data.mtime;
           this.lastMatchedCount = data.matchedCount;
+          this.lastMatchedMarkerIds = data.matchedMarkerIds;
           if (data.name) this.lastCharName = data.name;
           if (data.level) this.lastCharLevel = data.level;
           if (typeof data.slotIndex === 'number') this.currentSlotIndex = data.slotIndex;
 
-          if (mtimeChanged || countChanged) {
+          if (force || mtimeChanged || countChanged) {
             const collectedIds: Record<string, boolean> = {};
             for (const id of data.matchedMarkerIds) {
               collectedIds[id] = true;

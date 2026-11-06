@@ -34,6 +34,10 @@ export interface TrackerMarker {
   mediaUrl?: string;
   mapGenieId?: number;
   rarity?: number;
+  randomized?: string;
+  vanilla?: string;
+  spoilerArea?: string;
+  allRandomized?: string[];
 }
 
 export interface RouteWaypoint {
